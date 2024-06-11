@@ -1,0 +1,2 @@
+
+export const BASE_URL = process.env.CUSTOM_NODE_ENV === "test" ? "https://high-rise-website.vercel.app": process.env.CUSTOM_NODE_ENV === "production" ? "https://www.highriseconstructionsolutions.com" : "http://localhost:3000";
