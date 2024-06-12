@@ -71,7 +71,7 @@ export function  Header(){
               <Box sx={{flexGrow: 1}} />
               <Box sx={{ display: { xs: "block", sm: "block", md: 'none'}}}>
                 <IconButton 
-                  sx={{ color: '#000' }}
+                  sx={{ color: theme.palette.mode === 'light' ? "#000":"#fff" }}
                   onClick={handleMobileMenu}
                 >
                   <Menu />
@@ -189,7 +189,7 @@ const AllMenusForMobile = (data) => {
   const theme = useTheme();
   const toggleTheme = useThemeToggle();
   return (
-    <Box sx={{display: { xs: 'flex', md:'none'}, flexDirection: 'column', alignContent: "center", alignItems: "center", padding: ".5rem"}}>
+    <Box sx={{display: { xs: 'flex', md:'none'}, flexDirection: 'column', alignContent: "flex-start", alignItems: "flex-start", padding: ".5rem"}}>
       
       {data.map((route, index)=> (
                   <NavItem

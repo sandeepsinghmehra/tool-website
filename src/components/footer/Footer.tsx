@@ -30,16 +30,17 @@ export const NavItem = ({ title, active, href }) => {
         sx={{
           textDecoration: active ? 'underline' : 'none', 
           textUnderlineOffset: active ? '5px': 'none',
+          p: 0,
+          pt: 1,
         }}  
       >{title}</CustomLink>   
   )
 }
 const AllMenus = (data) => {
-  console.log("data: ", data);
     const theme = useTheme();
     const toggleTheme = useThemeToggle();
     return (
-      <Box sx={{display: { xs: 'flex'}, flexDirection: 'column', alignContent: "center", alignItems: "center", padding: ".5rem"}}>
+      <Box sx={{display: { xs: 'flex'}, flexDirection: 'column', alignContent: "flex-start", alignItems: "flex-start"}}>
         
         {data.map((route, index)=> (
                     <NavItem
@@ -52,12 +53,12 @@ const AllMenus = (data) => {
                  
                   <Button
                     variant="contained" 
-                    fullWidth 
                     href="sandeepsm017@gmail.com"  
                     sx={{
-                      height: '60px',
+                      height: '40px',
                       bgcolor: 'contained',
-                      color: theme.palette.mode === 'light' ? "#000": "#fff",
+                      color: "#fff",
+                      my: 1
                     }}
                   >
                     Contact Us
@@ -82,35 +83,72 @@ export function  Footer(){
     ]
     return (
         <>
-            <Box sx={{ flexGrow: 1, padding: {xs: '5px', md: '40px 20px'}, bgcolor: theme.palette.mode === 'light' ? 'hsla(60,6.67%,94.12%,1)': "#000" }}>
+            <Box sx={{ flexGrow: 1, padding: {xs: '5px', md: '20px 20px'}, bgcolor: theme.palette.mode === 'light' ? 'hsla(60,6.67%,94.12%,1)': "#000" }}>
                 <Grid  container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 4, md: 12 }}>
-                    <Grid item xs={4} sm={4} md={4} sx={{display: 'flex', flexDirection: {xs: 'column', md: 'row'}}}>
-                        <Box>
-                        <Typography variant="h3" color={theme.palette.mode === 'light' ? "#000": "#fff"} sx={{fontSize: "500"}}>Menus</Typography>
-                        {AllMenus(data)}
+                    <Grid item xs={4} sm={4} md={4} sx={{display: 'flex', flexDirection: {xs: 'row', md: 'row'}}}>
+                        <Box sx={{width: '50%'}}>
+                          <Typography variant="h6" color={theme.palette.mode === 'light' ? "#000": "#fff"} sx={{fontSize: "500"}}>Menus</Typography>
+                          {AllMenus(data)}
                         </Box>
-                        <Box>
-                        <Item sx={{ height: {xs: '100%', md: '20rem' } }}>
-                            <Typography variant="h3" color={theme.palette.mode === 'light' ? "#000": "#fff"} sx={{fontSize: "700"}}>Address</Typography>
-                            <Typography variant="body2" color="text.secondary" margin={1}>Ghaghreti, Betalghat</Typography>
-                            <Typography variant="body2" color="text.secondary" margin={1}>Nainital, UK 263134</Typography>
-                        </Item>
+                        <Box sx={{width: '50%'}}>
+                          <Item sx={{ height: {xs: '100%', md: '15rem' } }}>
+                              <Typography variant="h6" color={theme.palette.mode === 'light' ? "#000": "#fff"} sx={{fontSize: "700"}}>Address</Typography>
+                              <Typography variant="body2" color="text.secondary">Ghaghreti, Betalghat</Typography>
+                              <Typography variant="body2" color="text.secondary">Nainital, UK 263134</Typography>
+                          </Item>
                         </Box>
                         
                     </Grid>
+                    
+                    <Grid item xs={4} sm={4} md={4} sx={{display: 'flex', flexDirection: {xs: 'row', md: 'row'}}}>
+                      <Box sx={{width: '50%'}}>
+                        <Item sx={{ height: {xs: '100%', md: '15rem' } }}>
+                              <Typography variant="h6" color={theme.palette.mode === 'light' ? "#000": "#fff"} sx={{fontSize: "700"}}>Converter Tools</Typography>
+                              <Typography variant="body2" color="text.secondary">WEBP to PNG</Typography>
+                              <Typography variant="body2" color="text.secondary">JPG to WEBP</Typography>
+                              <Typography variant="body2" color="text.secondary">PNG to WEBP</Typography>
+                              <Typography variant="body2" color="text.secondary">PNG to JPG</Typography>
+                              <Typography variant="body2" color="text.secondary">JPG to PNG</Typography>
+                          </Item>
+                      </Box>
+                      <Box sx={{width: '50%'}}>
+                        <Item sx={{ height: {xs: '100%', md: '15rem' },}}>
+                            <Typography variant="h6" color={theme.palette.mode === 'light' ? "#000": "#fff"}>Office Hours</Typography>
+                            <Typography variant="body2" color="text.secondary">Monday-Friday</Typography>
+                            <Typography variant="body2" color="text.secondary">7 PM - 7 AM</Typography>
+                        </Item>
+                      </Box>
+                    </Grid>
                     <Grid item xs={4} sm={4} md={4}>
-                        <Item sx={{ height: {xs: '100%', md: '20rem' }, alignItems: "center", alignContent: 'center' }}>
+                        <Item sx={{ height: {xs: '100%', md: '15rem' }, alignItems: "center", alignContent: 'center' }}>
                             <Map />
                         </Item>
                     </Grid>
-                    <Grid item xs={4} sm={4} md={4}>
-                        <Item sx={{ height: {xs: '100%', md: '20rem' },}}>
-                            <Typography variant="h4" color={theme.palette.mode === 'light' ? "#000": "#fff"}>Office Hours</Typography>
-                            <Typography variant="body2" color="text.secondary" margin={1}>Monday-Friday</Typography>
-                            <Typography variant="body2" color="text.secondary" margin={1}>8 AM - 4 PM</Typography>
-                        </Item>
-                    </Grid>
                 </Grid>
+            </Box>
+            <Box 
+              sx={{
+                // bgcolor: "blue", 
+                height: '2rem', 
+                display: 'flex', 
+                flexDirection: {xs: "column", md: 'row'},
+                alignItems: 'center',
+                justifyContent: 'space-around'
+              }} 
+            >
+              <Box>
+                Copyright © 2024 - convertmaster.com | All rights reserved
+              </Box>
+              <Box>
+                <CustomLink 
+                  href={"/privacy-policy"}
+                  sx={{
+                    textDecoration: 'none', 
+                    textUnderlineOffset: 'none',
+                    p: 0
+                  }}  
+                >Privacy-policy</CustomLink> 
+              </Box>
             </Box>
         </>
     )
