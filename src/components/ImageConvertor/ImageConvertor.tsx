@@ -1,5 +1,5 @@
 "use client"
-import { Avatar, Box, Button, Divider, Grid, List, ListItem, ListItemAvatar, ListItemButton, ListItemIcon, ListItemText, Paper, TextField, Typography, makeStyles, styled } from '@mui/material';
+import { Avatar, Box, Button, Divider, Grid, List, ListItem, ListItemAvatar, ListItemButton, ListItemIcon, ListItemText, Paper, TextField, Typography, makeStyles, styled, useTheme } from '@mui/material';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import TabButton from '../Buttons/TabButton';
@@ -18,6 +18,7 @@ const InputContainer =  styled('div')(({ theme }) => ({
     }
 }));
 const ImageConverter = () => {
+    const theme:any = useTheme();
     const [selectedFile, setSelectedFile] = useState(null);
     const [convertedFile, setConvertedFile] = useState(null);
     const [inputFormat, setInputFormat] = useState('jpeg'); // Default input format
@@ -194,7 +195,9 @@ const ImageConverter = () => {
             sx={{
                 pt: '3px',
                 mb: '20px',
-                textAlign: 'center'
+                textAlign: 'center',
+                width: {xs: '90%', md: '80%'},
+                margin: 'auto'
             }}
         >
             <Typography 
@@ -216,7 +219,7 @@ const ImageConverter = () => {
                     alignItems: 'center',
                     border: '1px solid rgba(164, 164, 164, 0.13)',
                     borderRadius: '35px',
-                    boxShadow: `rgb(241, 241, 241) 1px 13px 12px 0px`,
+                    boxShadow: theme.palette.mode === 'light' ? `rgb(241, 241, 241) 1px 13px 12px 0px` : '#000',
                     width: {xs: '90%', md: '100%'}
                 }}>
                 <Grid item xs={6} sx={{padding: `10px`,}}>

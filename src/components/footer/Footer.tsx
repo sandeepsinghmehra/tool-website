@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#000' : 'hsla(60,6.67%,94.12%,1)',
+    backgroundColor: theme.palette.mode === 'dark' ? '#000' : '#fff',
     ...theme.typography.body2,
     // padding: theme.spacing(1),
     display: "flex", 
@@ -83,7 +83,7 @@ export function  Footer(){
     ]
     return (
         <>
-            <Box sx={{ flexGrow: 1, padding: {xs: '5px', md: '20px 20px'}, bgcolor: theme.palette.mode === 'light' ? 'hsla(60,6.67%,94.12%,1)': "#000" }}>
+            <Box sx={{ flexGrow: 1, padding: {xs: '5px', md: '20px 20px'}, bgcolor: theme.palette.mode === 'light' ? '#fff': "#000" }}>
                 <Grid  container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 4, md: 12 }}>
                     <Grid item xs={4} sm={4} md={4} sx={{display: 'flex', flexDirection: {xs: 'row', md: 'row'}}}>
                         <Box sx={{width: '50%'}}>

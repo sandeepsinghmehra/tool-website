@@ -49,15 +49,15 @@ export function  Header(){
       <> 
         <Box 
           sx={{flexGrow: 1}} 
-          // height={"4rem"}
         >
           <AppBar 
+            elevation={0}
             position='static' 
             sx={{ 
               bgcolor: theme.palette.mode === 'light' ? "#fff": "#000" 
             }}
           >
-            <Toolbar>
+            <Toolbar sx={{p: {xs: 0, md: 0}}}>
               <Box>
                 <Link href={'/'}>
                   <Logo
@@ -136,7 +136,14 @@ const AllMenus = (data) => {
   const toggleTheme = useThemeToggle();
   
   return (
-    <Box sx={{display: { xs: 'none', sm: 'none', md:'flex'}, flexDirection: 'row', alignContent: "center", alignItems: "center", padding: ".3rem"}}>
+    <Box 
+      sx={{
+        display: { xs: 'none', sm: 'none', md:'flex'}, 
+        flexDirection: 'row', 
+        alignContent: "center", 
+        alignItems: "center", 
+      }}>
+
                 {data.map((route, index)=> (
                   <NavItem
                     key={index}
