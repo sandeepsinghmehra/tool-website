@@ -17,8 +17,8 @@ const CustomLink = styled(Link)(({ theme }) => ({
 }));
 
 const Logo = styled(Image)({
-  height: 80,
-  width: 80,
+  height: 40,
+  width: 40,
 });
 
 export function  Header(){
@@ -47,9 +47,15 @@ export function  Header(){
   }
   return (
       <> 
-        <Box sx={{flexGrow: 1}} height={"8rem"}>
-          <AppBar position='static' 
-            sx={{ bgcolor: theme.palette.mode === 'light' ? "#fff": "#000" }}
+        <Box 
+          sx={{flexGrow: 1}} 
+          // height={"4rem"}
+        >
+          <AppBar 
+            position='static' 
+            sx={{ 
+              bgcolor: theme.palette.mode === 'light' ? "#fff": "#000" 
+            }}
           >
             <Toolbar>
               <Box>
@@ -57,8 +63,8 @@ export function  Header(){
                   <Logo
                     src={"/convertmasterLogo.png"}
                     alt={"Convert Master Logo"}
-                    width={100}
-                    height={70}
+                    width={40}
+                    height={40}
                   />
                 </Link>
               </Box>
@@ -95,8 +101,8 @@ export function  Header(){
                   <Logo
                     src={"/convertmasterLogo.png"}
                     alt={"Convert Master Logo"}
-                    width={50}
-                    height={50}
+                    width={40}
+                    height={40}
                   />
                 </Link>
               </Box>
@@ -130,7 +136,7 @@ const AllMenus = (data) => {
   const toggleTheme = useThemeToggle();
   
   return (
-    <Box sx={{display: { xs: 'none', sm: 'none', md:'flex'}, flexDirection: 'row', alignContent: "center", alignItems: "center", padding: "2rem"}}>
+    <Box sx={{display: { xs: 'none', sm: 'none', md:'flex'}, flexDirection: 'row', alignContent: "center", alignItems: "center", padding: ".3rem"}}>
                 {data.map((route, index)=> (
                   <NavItem
                     key={index}
@@ -169,10 +175,10 @@ const AllMenus = (data) => {
                   variant="contained"  
                   href="sandeepsm017@gmail.com"  
                   sx={{
-                    height: '60px',
                     bgcolor: "contained",
-                    color: theme.palette.mode === 'light' ? "#000": "#fff",
+                    color: "#fff",
                   }}
+                  size="medium"
                 >
                   Contact Us
                 </Button>
@@ -219,8 +225,9 @@ const AllMenusForMobile = (data) => {
                   sx={{
                     height: '60px',
                     bgcolor: 'contained',
-                    color: theme.palette.mode === 'light' ? "#000": "#fff",
+                    color: "#fff",
                   }}
+                  size="medium"
                 >
                   Contact Us
                 </Button>
