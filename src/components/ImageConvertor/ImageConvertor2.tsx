@@ -1,5 +1,6 @@
 "use client"
 import { Box, Button, Grid, Paper, TextField, Typography, makeStyles, styled } from '@mui/material';
+import Image from 'next/image';
 import React, { useState } from 'react';
 
 const InputMui = styled('input')(({ theme }) => ({
@@ -55,7 +56,7 @@ const ImageConverter2 = () => {
 
       reader.readAsDataURL(file);
       reader.onload = (event) => {
-        const img:any = new Image();
+        const img:any = new window.Image();
         img.src = event.target.result;
 
         img.onload = () => {
@@ -225,44 +226,75 @@ const ImageConverter2 = () => {
                 </Grid>
             </Grid>
         </InputContainer> 
-        <Paper elevation={3} sx={{width: '60%', m: 'auto', height: '20rem', display: 'flex', justifyContent: 'space-evenly'}}>
-            <Box    >
+        <Paper 
+            elevation={3} 
+            sx={{
+                width: { xs: '90%', md:'60%'}, 
+                m: 'auto', 
+                height: {xs: '100%', md:'20rem'}, 
+                display: 'flex',
+                flexDirection: {xs: 'column', md: 'row'}, justifyContent: {md:'space-evenly'}}}>
+            <Box  
+                sx={{
+                    padding: {xs: 2, md: 0}
+                }}  
+            >
                 <Typography variant='subtitle2' pt={1} component={'div'}>Original Image</Typography>
                 {selectedFile && (
                     <div>
                         <Typography variant='caption' component={'div'}>File Name: {selectedFile.name}</Typography>
                         <Typography variant='caption' component={'div'}>File Size: {(selectedFile.size / 1024 / 1024).toFixed(2)} MB</Typography>
-                        <img 
-                            src={URL.createObjectURL(selectedFile)} 
-                            alt="Original" 
-                            style={{ 
-                                width: '10rem', 
-                                height: '10rem', 
-                                overflow: 'hidden',
-                                objectFit: 'cover', 
-                                display: 'block',
+                        <Box 
+                            sx={{
+                                overflow: "hidden", 
+                                padding: {xs: "2rem 0",md:"2rem 0"}, 
+                                width: {xs: 'auto', md:'10rem'},
+                                height: '10rem',
+                                position: 'relative',
                             }} 
+                        >
+                            <Image  
+                                src={URL.createObjectURL(selectedFile)} 
+                                alt={`Original`} 
+                                fill
+                                style={{
+                                    width: '100%',
+                                    objectFit: 'cover', 
+                                }}
                             />
+                        </Box>
                     </div>
                 )}
             </Box> 
-            <Box >
+            <Box 
+                sx={{
+                    padding: {xs: 2, md: 0}
+                }} 
+            >
                 <Typography variant='subtitle2' pt={1} component={'div'}>Converted Image</Typography>
                 {convertedFile && (
                     <div>
                         <Typography variant='caption' component={'div'}>File Name: {convertedFile.name}</Typography>
                         <Typography variant='caption' component={'div'}>File Size: {(convertedFile.size / 1024 / 1024).toFixed(2)} MB</Typography>
-                        <img 
-                            src={URL.createObjectURL(convertedFile)} 
-                            alt="Converted" 
-                            style={{ 
-                                width: '10rem', 
-                                height: '10rem', 
-                                overflow: 'hidden',
-                                objectFit: 'cover',
-                                display: 'block',   
+                         <Box 
+                            sx={{
+                                overflow: "hidden", 
+                                padding: {xs: "2rem 0",md:"2rem 0"}, 
+                                width: {xs: 'auto', md:'10rem'},
+                                height: '10rem',
+                                position: 'relative',
                             }} 
-                        />
+                        >
+                            <Image  
+                                src={URL.createObjectURL(convertedFile)} 
+                                alt={`Converted`} 
+                                fill
+                                style={{
+                                    width: '100%',
+                                    objectFit: 'cover', 
+                                }}
+                            />
+                        </Box>
                         <Button variant="contained" color="primary" sx={{mt: 1 }} onClick={handleDownload}>Download Image</Button>
                     </div>
                 )}
