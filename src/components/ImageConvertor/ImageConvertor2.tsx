@@ -2,13 +2,17 @@
 import { Box, Button, Grid, Paper, TextField, Typography, makeStyles, styled } from '@mui/material';
 import Image from 'next/image';
 import React, { useState } from 'react';
+import TabButton from '../Buttons/TabButton';
 
 const InputMui = styled('input')(({ theme }) => ({
     display: 'none',
 }));
 const InputContainer =  styled('div')(({ theme }) => ({
-    width: '400px',
+    width: 'auto',
     margin: '20px auto',
+    [theme.breakpoints.up('md')]: {
+        width: '400px'
+    }
 }));
 const ImageConverter2 = () => {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -116,13 +120,72 @@ const ImageConverter2 = () => {
 
   return (
     <Box component={"section"}>
+        <Box 
+            mt={2} 
+            sx={{
+                display: 'flex', 
+                flexWrap: "wrap", 
+                gap: 2, 
+                alignItems: 'center', 
+                justifyContent: 'center'
+            }} 
+        >
+            <TabButton 
+                isActive={inputFormat === "jpeg" && outputFormat === "webp"}
+                handleImageFormatChange={()=>handleImageFormatChange("jpeg", "webp")} 
+                btnName={"JPG to Webp"}
+            />
 
+            <TabButton 
+                isActive={inputFormat === "webp" && outputFormat === "png"}
+                handleImageFormatChange={()=>handleImageFormatChange("webp", "png")} 
+                btnName={"Webp to PNG"}
+            />
+            <TabButton 
+                isActive={inputFormat === "webp" && outputFormat === "jpg"}
+                handleImageFormatChange={()=>handleImageFormatChange("webp", "jpg")} 
+                btnName={"Webp to JPG"}
+            />
+            <TabButton 
+                isActive={inputFormat === "jpg" && outputFormat === "png"}
+                handleImageFormatChange={()=>handleImageFormatChange("jpg", "png")} 
+                btnName={"JPG to PNG"}
+            />
+
+            <TabButton 
+                isActive={inputFormat === "jpg" && outputFormat === "webp"}
+                handleImageFormatChange={()=>handleImageFormatChange("jpg", "webp")} 
+                btnName={"JJPG to Webp"}
+            />
+        
+            <TabButton 
+                isActive={inputFormat === "png" && outputFormat === "webp"}
+                handleImageFormatChange={()=>handleImageFormatChange("png", "webp")} 
+                btnName={"PNG to Webp"}
+            />
+            <TabButton 
+                isActive={inputFormat === "png" && outputFormat === "jpg"}
+                handleImageFormatChange={()=>handleImageFormatChange("png", "jpg")} 
+                btnName={"PNG to JPG"}
+            />
+
+            <TabButton 
+                isActive={inputFormat === "jpeg" && outputFormat === "png"}
+                handleImageFormatChange={()=>handleImageFormatChange("jpeg", "png")} 
+                btnName={"JPG to PNG"}
+            />
+        </Box>
         <Typography 
             variant='h3' 
             component={'h3'} 
             align='center' 
-            pt={7}
-        > {inputFormat.toUpperCase()} to {outputFormat.toUpperCase()} Converter</Typography>
+            pt={2}
+        > 
+            <Typography 
+                component={'span'} 
+                variant='h3'
+                color={"orange"}
+            >{inputFormat.toUpperCase()}</Typography> to <Typography component={'span'} variant='h3' color={"green"}>{outputFormat.toUpperCase()}</Typography> Converter</Typography>
         <Typography 
             variant='body1' 
             sx={{
@@ -131,78 +194,27 @@ const ImageConverter2 = () => {
                 textAlign: 'center'
             }}
         >
-            {inputFormat} to {outputFormat} Converter. CloudConvert converts your image files online.
-            Best way to convert your {inputFormat} to {outputFormat} file in seconds.
+            <Typography 
+                component={'span'} 
+                color={"orange"}
+            >{inputFormat.toUpperCase()}</Typography> to <Typography component={'span'} color={"green"}>{outputFormat.toUpperCase()}</Typography> Converter. ConvertMaster converts your image files online.
+            Best way to convert your <Typography 
+                component={'span'} 
+                color={"orange"}
+            >{inputFormat.toUpperCase()}</Typography> to <Typography component={'span'} color={"green"}>{outputFormat.toUpperCase()}</Typography> file in seconds.
         </Typography>
 
-      <Box sx={{display: 'flex', flexWrap: "wrap", gap: 3, alignItems: 'center', justifyContent: 'center'}} >
-            <Button 
-                sx={{borderBottom: (inputFormat === "webp" && outputFormat === "png") ? "5px solid green" : "5px solid orange" }} 
-                onClick={()=>handleImageFormatChange("webp", "png")}
-                color='primary'
-                variant='contained'
-                size='small'
-            >Webp to PNG</Button>
-        <Button
-            sx={{borderBottom: (inputFormat === "webp" && outputFormat === "jpg")?"5px solid green" : "5px solid orange" }}  
-            onClick={()=>handleImageFormatChange("webp", "jpg")}
-            color='primary'
-            variant='contained'
-            size='small'
-        >Webp to JPG</Button>
-        <Button 
-            sx={{borderBottom: (inputFormat === "jpg" && outputFormat === "png")? "5px solid green" : "5px solid orange" }}  
-            onClick={()=>handleImageFormatChange("jpg", "png")}
-            color='primary'
-            variant='contained'
-            size='small'
-        >JPG to PNG</Button>
-        <Button 
-            sx={{borderBottom: (inputFormat === "jpg" && outputFormat === "webp")? "5px solid green" : "5px solid orange" }}  
-            onClick={()=>handleImageFormatChange("jpg", "webp")}
-            color='primary'
-            variant='contained'
-            size='small'
-        >JPG to Webp</Button>
-        <Button 
-            sx={{borderBottom: (inputFormat === "png" && outputFormat === "webp")? "5px solid green" : "5px solid orange" }}  
-            onClick={()=>handleImageFormatChange("png", "webp")}
-            color='primary'
-            variant='contained'
-            size='small'
-        >PNG to Webp</Button>
-        <Button 
-            sx={{borderBottom: (inputFormat === "png" && outputFormat === "jpg")? "5px solid green" : "5px solid orange" }}  
-            onClick={()=>handleImageFormatChange("png", "jpg")}
-            color='primary'
-            variant='contained'
-            size='small'
-        >PNG to JPG</Button>
-        <Button
-            sx={{borderBottom: (inputFormat === "jpeg" && outputFormat === "png")? "5px solid green" : "5px solid orange" }}  
-            onClick={()=>handleImageFormatChange("jpeg", "png")}
-            color='primary'
-            variant='contained'
-            size='small'
-        >JPG to PNG</Button>
-        <Button
-            sx={{borderBottom: (inputFormat === "jpeg" && outputFormat === "webp")? "5px solid green" : "5px solid orange" }}  
-            onClick={()=>handleImageFormatChange("jpeg", "webp")}
-            color='primary'
-            variant='contained'
-            size='small'
-        >JPG to Webp</Button>
-      </Box>
         <InputContainer>
             <Grid container
                 sx={{
                     padding: 0,
-                    margin: 0,
+                    margin: {xs: 'auto', md: 0},
                     justifyContent: 'center',
                     alignItems: 'center',
                     border: '1px solid rgba(164, 164, 164, 0.13)',
                     borderRadius: '35px',
                     boxShadow: `rgb(241, 241, 241) 1px 13px 12px 0px`,
+                    width: {xs: '90%', md: '100%'}
                 }}>
                 <Grid item xs={6} sx={{padding: `10px`,}}>
                     <InputMui
@@ -213,14 +225,28 @@ const ImageConverter2 = () => {
                         onChange={handleFileChange}
                     />
                     <label htmlFor="contained-button-file">
-                        <Button component="span" sx={{margin: 0, color: 'orange' }}>
+                        <Button 
+                            component="span" 
+                            sx={{
+                                margin: 0, 
+                                color: 'orange',
+                                fontSize: {xs: '.7rem', md: '.9rem'} 
+                            }}>
                         {(selectedFile && selectedFile?.name) || "Choose Image File"}
                         </Button>
                     </label>
                 
                 </Grid>
                 <Grid item xs={6}>
-                    <Button variant="contained" color="primary" component="span" onClick={getConvertedFile} sx={{borderRadius: '35px',}}>
+                    <Button 
+                        variant="contained" 
+                        color="primary" 
+                        component="span" 
+                        onClick={getConvertedFile} 
+                        sx={{ 
+                            borderRadius: '35px', 
+                            fontSize: {xs: '.7rem', md: '.9rem'} 
+                        }}>
                         Convert to {outputFormat}
                     </Button>
                 </Grid>
