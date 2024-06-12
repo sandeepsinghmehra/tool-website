@@ -5,6 +5,7 @@ const ThemeProvider = dynamic(()=>import("@/components/theme/ThemeProvider"), {s
 import { Header } from "@/components/navbar/Header";
 import { Footer } from "@/components/footer/Footer";
 import { Analytics } from '@vercel/analytics/react';
+import { Box } from "@mui/material";
 
 const inter = Inter({ subsets: ["latin"], display: 'swap' });
 
@@ -80,12 +81,14 @@ export default function RootLayout({
         </script>
       </head>
       <body className={inter.className}>
-        <ThemeProvider>
-          <Header />
-          {children}
-          <Analytics />
-          <Footer />
-        </ThemeProvider>
+        <Box sx={{ width: {xs: "100%", md:"80%"}, margin: 'auto'}}>
+          <ThemeProvider>
+            <Header />
+            {children}
+            <Analytics />
+            <Footer />
+          </ThemeProvider>
+        </Box>
         </body>
     </html>
   );
