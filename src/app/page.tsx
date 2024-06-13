@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ImageConverter from "@/components/ImageConvertor/ImageConvertor";
+import Link from "next/link";
 
 
 export const metadata: Metadata = {
@@ -8,9 +8,10 @@ export const metadata: Metadata = {
 };
 
 function Home() {
+  
   return (
     <main>
-      <ImageConverter />
+      <Link href={"image-convert"}>Go To Image Converter</Link>
     </main>
   );
 }

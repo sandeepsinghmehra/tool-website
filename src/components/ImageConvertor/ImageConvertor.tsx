@@ -17,18 +17,14 @@ const InputContainer =  styled('div')(({ theme }) => ({
         width: '400px'
     }
 }));
-const ImageConverter = () => {
+const ImageConverter = ({inputFormat, outputFormat}) => {
     const theme:any = useTheme();
     const [selectedFile, setSelectedFile] = useState(null);
     const [convertedFile, setConvertedFile] = useState(null);
-    const [inputFormat, setInputFormat] = useState('jpeg'); // Default input format
-    const [outputFormat, setOutputFormat] = useState('webp'); // Default output format
+    // const [inputFormat, setInputFormat] = useState('jpeg'); // Default input format
+    // const [outputFormat, setOutputFormat] = useState('webp'); // Default output format
     
     const [error, setError] = useState('');
-
-    const imageTypes = [
-        'jpeg', 'webp', 'jpg', 'png'
-    ];
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
@@ -52,11 +48,7 @@ const ImageConverter = () => {
             console.error(error);
         }
     }
-    // console.log("selectedFile: ", selectedFile, selectedFile?.name);
-    const handleImageFormatChange = (inputFormat, outputFormat) => {
-        setInputFormat(inputFormat);
-        setOutputFormat(outputFormat);
-    }
+    
 
   const compressAndConvertImage = (file) => {
     return new Promise((resolve, reject) => {
@@ -124,61 +116,6 @@ const ImageConverter = () => {
 
   return (
     <Box component={"section"}>
-        <Box 
-            mt={2} 
-            sx={{
-                display: 'flex', 
-                flexWrap: "wrap", 
-                gap: 2, 
-                alignItems: 'center', 
-                justifyContent: 'center'
-            }} 
-        >
-            <TabButton 
-                isActive={inputFormat === "jpeg" && outputFormat === "webp"}
-                handleImageFormatChange={()=>handleImageFormatChange("jpeg", "webp")} 
-                btnName={"JPG to Webp"}
-            />
-
-            <TabButton 
-                isActive={inputFormat === "webp" && outputFormat === "png"}
-                handleImageFormatChange={()=>handleImageFormatChange("webp", "png")} 
-                btnName={"Webp to PNG"}
-            />
-            <TabButton 
-                isActive={inputFormat === "webp" && outputFormat === "jpg"}
-                handleImageFormatChange={()=>handleImageFormatChange("webp", "jpg")} 
-                btnName={"Webp to JPG"}
-            />
-            <TabButton 
-                isActive={inputFormat === "jpg" && outputFormat === "png"}
-                handleImageFormatChange={()=>handleImageFormatChange("jpg", "png")} 
-                btnName={"JPG to PNG"}
-            />
-
-            <TabButton 
-                isActive={inputFormat === "jpg" && outputFormat === "webp"}
-                handleImageFormatChange={()=>handleImageFormatChange("jpg", "webp")} 
-                btnName={"JJPG to Webp"}
-            />
-        
-            <TabButton 
-                isActive={inputFormat === "png" && outputFormat === "webp"}
-                handleImageFormatChange={()=>handleImageFormatChange("png", "webp")} 
-                btnName={"PNG to Webp"}
-            />
-            <TabButton 
-                isActive={inputFormat === "png" && outputFormat === "jpg"}
-                handleImageFormatChange={()=>handleImageFormatChange("png", "jpg")} 
-                btnName={"PNG to JPG"}
-            />
-
-            <TabButton 
-                isActive={inputFormat === "jpeg" && outputFormat === "png"}
-                handleImageFormatChange={()=>handleImageFormatChange("jpeg", "png")} 
-                btnName={"JPG to PNG"}
-            />
-        </Box>
         <Typography 
             variant='h3' 
             component={'h3'} 

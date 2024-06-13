@@ -8,10 +8,10 @@ const TabButton = ({isActive, handleImageFormatChange, btnName}) => {
         <Button
             sx={{
                 borderBottom: isActive ? "5px solid green" : "5px solid orange", 
-                fontSize: {xs: '.4rem', md: '.7rem'},
+                fontSize: {xs: '.4rem', md: '.68rem'},
                 bgcolor: isActive ? "#42EADDFF": "primary"
             }}  
-            onClick={()=>handleImageFormatChange("jpeg", "png")}
+            onClick={handleImageFormatChange}
             color='primary'
             variant='contained'
             size='small'
