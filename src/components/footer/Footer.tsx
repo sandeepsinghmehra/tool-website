@@ -112,9 +112,9 @@ export function  Footer(){
                               <Button 
                                 variant="text"  
                                 size="small"
-                                onClick={()=>handleImageFormatChange('jpg', 'webp')}
+                                onClick={()=>handleImageFormatChange('jpeg', 'webp')}
                                 sx={{justifyContent: 'flex-start', color: theme.palette.mode === 'light' ? "#000": "#fff"}}  
-                              >JPG to WEBP</Button>
+                              >JPEG to WEBP</Button>
                               <Button 
                                 variant="text" 
                                 size="small"
@@ -124,15 +124,15 @@ export function  Footer(){
                               <Button 
                                 variant="text" 
                                 size="small"
-                                onClick={()=>handleImageFormatChange('png', 'jpg')}
+                                onClick={()=>handleImageFormatChange('png', 'jpeg')}
                                 sx={{justifyContent: 'flex-start', color: theme.palette.mode === 'light' ? "#000": "#fff"}} 
-                              >PNG to JPG</Button>
+                              >PNG to JPEG</Button>
                               <Button 
                                 variant="text"
                                 size="small"
-                                onClick={()=>handleImageFormatChange('jpg', 'png')}
+                                onClick={()=>handleImageFormatChange('jpeg', 'png')}
                                 sx={{justifyContent: 'flex-start', color: theme.palette.mode === 'light' ? "#000": "#fff"}} 
-                              >JPG to PNG</Button>
+                              >JPEG to PNG</Button>
                           </Item>
                       </Box>
                         
