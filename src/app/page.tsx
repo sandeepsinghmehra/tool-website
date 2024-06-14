@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import ImageConverter from "@/components/ImageConvertor/ImageConvertor";
+import Link from "next/link";
 
 
 export const metadata: Metadata = {
   title: "Home | Convert Master",
-  description: "<title>WEBP to PNG Converter</title>",
+  // description: "",
 };
 
 function Home() {
+  
   return (
     <main>
-      <ImageConverter />
+      <Link href={"image-convert/jpg-to-webp"}>Go To Image Converter</Link>
     </main>
   );
 }

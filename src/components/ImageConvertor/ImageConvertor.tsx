@@ -1,9 +1,7 @@
 "use client"
-import { Avatar, Box, Button, Divider, Grid, List, ListItem, ListItemAvatar, ListItemButton, ListItemIcon, ListItemText, Paper, TextField, Typography, makeStyles, styled, useTheme } from '@mui/material';
+import { Box, Button, Divider, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Typography, styled, useTheme } from '@mui/material';
 import Image from 'next/image';
 import React, { useState } from 'react';
-import TabButton from '../Buttons/TabButton';
-import { Circle as CircleIcon } from '@mui/icons-material';
 import TaskAltRoundedIcon from '@mui/icons-material/TaskAltRounded';
 
 
@@ -17,18 +15,12 @@ const InputContainer =  styled('div')(({ theme }) => ({
         width: '400px'
     }
 }));
-const ImageConverter = () => {
+const ImageConverter = ({inputFormat, outputFormat}) => {
     const theme:any = useTheme();
     const [selectedFile, setSelectedFile] = useState(null);
     const [convertedFile, setConvertedFile] = useState(null);
-    const [inputFormat, setInputFormat] = useState('jpeg'); // Default input format
-    const [outputFormat, setOutputFormat] = useState('webp'); // Default output format
     
     const [error, setError] = useState('');
-
-    const imageTypes = [
-        'jpeg', 'webp', 'jpg', 'png'
-    ];
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
@@ -52,11 +44,7 @@ const ImageConverter = () => {
             console.error(error);
         }
     }
-    // console.log("selectedFile: ", selectedFile, selectedFile?.name);
-    const handleImageFormatChange = (inputFormat, outputFormat) => {
-        setInputFormat(inputFormat);
-        setOutputFormat(outputFormat);
-    }
+    
 
   const compressAndConvertImage = (file) => {
     return new Promise((resolve, reject) => {
@@ -124,61 +112,6 @@ const ImageConverter = () => {
 
   return (
     <Box component={"section"}>
-        <Box 
-            mt={2} 
-            sx={{
-                display: 'flex', 
-                flexWrap: "wrap", 
-                gap: 2, 
-                alignItems: 'center', 
-                justifyContent: 'center'
-            }} 
-        >
-            <TabButton 
-                isActive={inputFormat === "jpeg" && outputFormat === "webp"}
-                handleImageFormatChange={()=>handleImageFormatChange("jpeg", "webp")} 
-                btnName={"JPG to Webp"}
-            />
-
-            <TabButton 
-                isActive={inputFormat === "webp" && outputFormat === "png"}
-                handleImageFormatChange={()=>handleImageFormatChange("webp", "png")} 
-                btnName={"Webp to PNG"}
-            />
-            <TabButton 
-                isActive={inputFormat === "webp" && outputFormat === "jpg"}
-                handleImageFormatChange={()=>handleImageFormatChange("webp", "jpg")} 
-                btnName={"Webp to JPG"}
-            />
-            <TabButton 
-                isActive={inputFormat === "jpg" && outputFormat === "png"}
-                handleImageFormatChange={()=>handleImageFormatChange("jpg", "png")} 
-                btnName={"JPG to PNG"}
-            />
-
-            <TabButton 
-                isActive={inputFormat === "jpg" && outputFormat === "webp"}
-                handleImageFormatChange={()=>handleImageFormatChange("jpg", "webp")} 
-                btnName={"JJPG to Webp"}
-            />
-        
-            <TabButton 
-                isActive={inputFormat === "png" && outputFormat === "webp"}
-                handleImageFormatChange={()=>handleImageFormatChange("png", "webp")} 
-                btnName={"PNG to Webp"}
-            />
-            <TabButton 
-                isActive={inputFormat === "png" && outputFormat === "jpg"}
-                handleImageFormatChange={()=>handleImageFormatChange("png", "jpg")} 
-                btnName={"PNG to JPG"}
-            />
-
-            <TabButton 
-                isActive={inputFormat === "jpeg" && outputFormat === "png"}
-                handleImageFormatChange={()=>handleImageFormatChange("jpeg", "png")} 
-                btnName={"JPG to PNG"}
-            />
-        </Box>
         <Typography 
             variant='h3' 
             component={'h3'} 
@@ -217,7 +150,7 @@ const ImageConverter = () => {
                     margin: {xs: 'auto', md: 0},
                     justifyContent: 'center',
                     alignItems: 'center',
-                    border: '1px solid rgba(164, 164, 164, 0.13)',
+                    border: theme.palette.mode === 'light' ? '1px solid rgba(164, 164, 164, 0.13)': "1px solid #FFF",
                     borderRadius: '35px',
                     boxShadow: theme.palette.mode === 'light' ? `rgb(241, 241, 241) 1px 13px 12px 0px` : '#000',
                     width: {xs: '90%', md: '100%'}

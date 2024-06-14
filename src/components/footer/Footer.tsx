@@ -4,7 +4,7 @@ import { useTheme, Paper, Typography, Container, Box, Stack, Grid, Button } from
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Map from "./Map";
 import { useThemeToggle } from "../theme/ThemeProvider";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -51,7 +51,7 @@ const AllMenus = (data) => {
                     />
                   ))}
                  
-                  <Button
+                  {/* <Button
                     variant="contained" 
                     href="sandeepsm017@gmail.com"  
                     sx={{
@@ -62,11 +62,12 @@ const AllMenus = (data) => {
                     }}
                   >
                     Contact Us
-                  </Button>
+                  </Button> */}
                 </Box>
     )
 }
 export function  Footer(){
+    const router = useRouter();
     const theme = useTheme();
     const pathName = usePathname();
     const data:any[] = [
@@ -76,11 +77,19 @@ export function  Footer(){
           active: pathName === `/`
         },
         {
-          href: '/services',
-          label: "Our services",
-          active: pathName === `/services`
+          href: "image-convert/jpg-to-webp",
+          label: "Image Convert",
+          active: pathName === "/image-convert/jpg-to-webp"
         },
+        // {
+        //   href: '/services',
+        //   label: "Our services",
+        //   active: pathName === `/services`
+        // },
     ]
+    
+    const handleImageFormatChange = ( convertFrom:string, convertTo:string ) => router.push(`/image-convert/${convertFrom}-to-${convertTo}`);
+
     return (
         <>
             <Box sx={{ flexGrow: 1, padding: {xs: '5px', md: '20px 20px'}, bgcolor: theme.palette.mode === 'light' ? '#fff': "#000" }}>
@@ -91,26 +100,53 @@ export function  Footer(){
                           {AllMenus(data)}
                         </Box>
                         <Box sx={{width: '50%'}}>
+                        <Item sx={{ height: {xs: '100%', md: '15rem' } }}>
+                              <Typography variant="h6" color={theme.palette.mode === 'light' ? "#000": "#fff"} sx={{fontSize: "700"}}>Tools</Typography>
+                      
+                              <Button 
+                                variant="text" 
+                                size="small"
+                                onClick={()=>handleImageFormatChange('webp', 'png')}
+                                sx={{justifyContent: 'flex-start', color: theme.palette.mode === 'light' ? "#000": "#fff"}} 
+                              >WEBP to PNG</Button>
+                              <Button 
+                                variant="text"  
+                                size="small"
+                                onClick={()=>handleImageFormatChange('jpg', 'webp')}
+                                sx={{justifyContent: 'flex-start', color: theme.palette.mode === 'light' ? "#000": "#fff"}}  
+                              >JPG to WEBP</Button>
+                              <Button 
+                                variant="text" 
+                                size="small"
+                                onClick={()=>handleImageFormatChange('png', 'webp')}
+                                sx={{justifyContent: 'flex-start', color: theme.palette.mode === 'light' ? "#000": "#fff"}} 
+                              >PNG to WEBP</Button>
+                              <Button 
+                                variant="text" 
+                                size="small"
+                                onClick={()=>handleImageFormatChange('png', 'jpg')}
+                                sx={{justifyContent: 'flex-start', color: theme.palette.mode === 'light' ? "#000": "#fff"}} 
+                              >PNG to JPG</Button>
+                              <Button 
+                                variant="text"
+                                size="small"
+                                onClick={()=>handleImageFormatChange('jpg', 'png')}
+                                sx={{justifyContent: 'flex-start', color: theme.palette.mode === 'light' ? "#000": "#fff"}} 
+                              >JPG to PNG</Button>
+                          </Item>
+                      </Box>
+                        
+                    </Grid>
+                    
+                    <Grid item xs={4} sm={4} md={4} sx={{display: 'flex', flexDirection: {xs: 'row', md: 'row'}}}>
+                     
+                      <Box sx={{width: '50%'}}>
                           <Item sx={{ height: {xs: '100%', md: '15rem' } }}>
                               <Typography variant="h6" color={theme.palette.mode === 'light' ? "#000": "#fff"} sx={{fontSize: "700"}}>Address</Typography>
                               <Typography variant="body2" color="text.secondary">Ghaghreti, Betalghat</Typography>
                               <Typography variant="body2" color="text.secondary">Nainital, UK 263134</Typography>
                           </Item>
                         </Box>
-                        
-                    </Grid>
-                    
-                    <Grid item xs={4} sm={4} md={4} sx={{display: 'flex', flexDirection: {xs: 'row', md: 'row'}}}>
-                      <Box sx={{width: '50%'}}>
-                        <Item sx={{ height: {xs: '100%', md: '15rem' } }}>
-                              <Typography variant="h6" color={theme.palette.mode === 'light' ? "#000": "#fff"} sx={{fontSize: "700"}}>Converter Tools</Typography>
-                              <Typography variant="body2" color="text.secondary">WEBP to PNG</Typography>
-                              <Typography variant="body2" color="text.secondary">JPG to WEBP</Typography>
-                              <Typography variant="body2" color="text.secondary">PNG to WEBP</Typography>
-                              <Typography variant="body2" color="text.secondary">PNG to JPG</Typography>
-                              <Typography variant="body2" color="text.secondary">JPG to PNG</Typography>
-                          </Item>
-                      </Box>
                       <Box sx={{width: '50%'}}>
                         <Item sx={{ height: {xs: '100%', md: '15rem' },}}>
                             <Typography variant="h6" color={theme.palette.mode === 'light' ? "#000": "#fff"}>Office Hours</Typography>

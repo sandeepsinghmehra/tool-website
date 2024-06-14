@@ -34,10 +34,15 @@ export function  Header(){
         active: pathName === `/`
       },
       {
-        href: '/services',
-        label: "Our services",
-        active: pathName === `/services`
+        href: "image-convert/jpg-to-webp",
+        label: "Image Convert",
+        active: pathName === "/image-convert/jpg-to-webp"
       },
+      // {
+      //   href: '/services',
+      //   label: "Our services",
+      //   active: pathName === `/services`
+      // },
   ]
   const handleMobileMenu:any = () => {
     setIsMobileMenuOpen(true);
@@ -70,6 +75,12 @@ export function  Header(){
               </Box>
               <Box sx={{flexGrow: 1}} />
               <Box sx={{ display: { xs: "block", sm: "block", md: 'none'}}}>
+                <IconButton 
+                  onClick={toggleTheme}
+                  title="theme-button-icons"
+                >
+                  { theme.palette.mode === 'light' ?<DarkModeRounded /> : <LightModeOutlined /> }
+                </IconButton>
                 <IconButton 
                   sx={{ color: theme.palette.mode === 'light' ? "#000":"#fff" }}
                   onClick={handleMobileMenu}
@@ -107,13 +118,6 @@ export function  Header(){
                 </Link>
               </Box>
               <Box sx={{flexGrow: 1}} />
-              <Box sx={{ display: { xs: "block", sm: "block", md: 'none'}}}>
-                <IconButton 
-                onClick={toggleTheme} 
-                sx={{ position: 'absolute', top: 10, right: 70}}>
-                  { theme.palette.mode === 'light' ?<DarkModeRounded /> : <LightModeOutlined /> }
-                </IconButton>
-              </Box>
               <Box sx={{ display: { xs: "block", sm: "block", md: 'none'}}}>
                 <IconButton sx={{ position: 'absolute', top: 10, right: 10}} onClick={handleMobileMenuClose}>
                   <Close />

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: '%s | Convert Master',
     default: "Convert Master", // a default is required when creating a template
   },
-  description: "Convert Master Free online WebP to PNG / JPG converter. Upload your WebP file and click Convert to PNG. Then you can download or edit the produced PNG image.",
+  // description: "Convert Master Free online WebP to PNG / JPG converter. Upload your WebP file and click Convert to PNG. Then you can download or edit the produced PNG image.",
   twitter: {
     card: "summary_large_image"
   },
@@ -72,13 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="google-adsense-account" content="ca-pub-7291468257656404" />
-        <script 
-          async 
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7291468257656404"
-          crossOrigin="anonymous"
-        >
-        </script>
+        
       </head>
       <body className={inter.className}>
         <Box sx={{ width: {xs: "100%", md:"80%"}, margin: 'auto'}}>
