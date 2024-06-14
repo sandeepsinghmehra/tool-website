@@ -11,7 +11,7 @@ function Home() {
   
   return (
     <main>
-      <Link href={"image-convert/jpg-to-webp"}>Go To Image Converter</Link>
+      <Link href={"image-convert/jpeg-to-webp"}>Go To Image Converter</Link>
     </main>
   );
 }

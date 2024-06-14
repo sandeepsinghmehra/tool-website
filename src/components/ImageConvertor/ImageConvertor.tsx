@@ -25,7 +25,7 @@ const ImageConverter = ({inputFormat, outputFormat}) => {
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         if (!file) return;
-
+        console.log("file: ", file)
         if (file.type !== `image/${inputFormat}`) {
             setError(`Selected file does not match the expected input format: image/${inputFormat}`);
             return;
@@ -34,7 +34,7 @@ const ImageConverter = ({inputFormat, outputFormat}) => {
         setSelectedFile(file);
         setError('');
     };
-
+ 
     const getConvertedFile = async () => {
         try {
             const compressedFile = await compressAndConvertImage(selectedFile);

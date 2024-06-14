@@ -16,13 +16,11 @@ export async function generateMetadata({ params }) {
 
 export async function generateStaticParams() {
   const allRoutes = [
-    { slug: 'jpg-to-webp' },
     { slug: "jpeg-to-webp"}, 
     { slug: "webp-to-png"},
-    { slug: "webp-to-jpg"},
-    { slug: 'jpg-to-png' }, 
+    { slug: "webp-to-jpeg"}, 
     { slug: 'png-to-webp' },
-    { slug: 'png-to-jpg'},
+    { slug: 'png-to-jpeg'},
     { slug: 'jpeg-to-png'},
   ];
 
@@ -33,7 +31,7 @@ export async function generateStaticParams() {
 
 
 function ImageConvertorPage({ params }: { params: { slug: string[] } })   {
-   const paramsData = Object.keys(params).length !== 0 ? params?.slug[0] : "jpg-to-webp";
+  const paramsData = params?.slug[0];
   const [inputFormat, outputFormat]: [string, string] = paramsData.split("-to-") as [string, string];
   return (
     <main>

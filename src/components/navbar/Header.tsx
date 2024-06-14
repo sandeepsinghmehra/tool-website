@@ -34,9 +34,9 @@ export function  Header(){
         active: pathName === `/`
       },
       {
-        href: "image-convert/jpg-to-webp",
+        href: "image-convert/jpeg-to-webp",
         label: "Image Convert",
-        active: pathName === "/image-convert/jpg-to-webp"
+        active: pathName === "/image-convert/jpeg-to-webp"
       },
       // {
       //   href: '/services',

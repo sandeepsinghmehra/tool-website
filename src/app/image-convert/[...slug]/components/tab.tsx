@@ -8,7 +8,7 @@ import TabButton from '@/components/Buttons/TabButton';
 const Tab = ({params}) => {
     const router = useRouter();
 
-    const paramsData = Object.keys(params).length !== 0 ? params?.slug[0] : "jpg-to-webp";
+    const paramsData = params?.slug[0];
     const [inputFormat, outputFormat]: [string, string] = paramsData.split("-to-") as [string, string];
 
     const handleImageFormatChange = ( convertFrom:string, convertTo:string ) => router.push(`/image-convert/${convertFrom}-to-${convertTo}`);
@@ -25,12 +25,6 @@ const Tab = ({params}) => {
                 }} 
             >
                 <TabButton 
-                    isActive={inputFormat === "jpg" && outputFormat === "webp"}
-                    handleImageFormatChange={()=>handleImageFormatChange("jpg", "webp")} 
-                    btnName={"JPG to Webp"}
-                />
-
-                <TabButton 
                     isActive={inputFormat === "jpeg" && outputFormat === "webp"}
                     handleImageFormatChange={()=>handleImageFormatChange("jpeg", "webp")} 
                     btnName={"JPEG to Webp"}
@@ -42,14 +36,14 @@ const Tab = ({params}) => {
                     btnName={"Webp to PNG"}
                 />
                 <TabButton 
-                    isActive={inputFormat === "webp" && outputFormat === "jpg"}
-                    handleImageFormatChange={()=>handleImageFormatChange("webp", "jpg")} 
-                    btnName={"Webp to JPG"}
+                    isActive={inputFormat === "webp" && outputFormat === "jpeg"}
+                    handleImageFormatChange={()=>handleImageFormatChange("webp", "jpeg")} 
+                    btnName={"Webp to JPEG"}
                 />
                 <TabButton 
-                    isActive={inputFormat === "jpg" && outputFormat === "png"}
-                    handleImageFormatChange={()=>handleImageFormatChange("jpg", "png")} 
-                    btnName={"JPG to PNG"}
+                    isActive={inputFormat === "jpeg" && outputFormat === "png"}
+                    handleImageFormatChange={()=>handleImageFormatChange("jpeg", "png")} 
+                    btnName={"JPEG to PNG"}
                 />
             
                 <TabButton 
@@ -58,16 +52,10 @@ const Tab = ({params}) => {
                     btnName={"PNG to Webp"}
                 />
                 <TabButton 
-                    isActive={inputFormat === "png" && outputFormat === "jpg"}
-                    handleImageFormatChange={()=>handleImageFormatChange("png", "jpg")} 
-                    btnName={"PNG to JPG"}
+                    isActive={inputFormat === "png" && outputFormat === "jpeg"}
+                    handleImageFormatChange={()=>handleImageFormatChange("png", "jpeg")} 
+                    btnName={"PNG to JPEG"}
                 />
-
-                <TabButton 
-                    isActive={inputFormat === "jpeg" && outputFormat === "png"}
-                    handleImageFormatChange={()=>handleImageFormatChange("jpeg", "png")} 
-                    btnName={"JPEG to PNG"}
-                /> 
             </Box>  
         </>
     )
