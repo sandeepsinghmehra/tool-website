@@ -143,8 +143,10 @@ export function  Footer(){
                       <Box sx={{width: '50%'}}>
                           <Item sx={{ height: {xs: '100%', md: '15rem' } }}>
                               <Typography variant="h6" color={theme.palette.mode === 'light' ? "#000": "#fff"} sx={{fontSize: "700"}}>Address</Typography>
-                              <Typography variant="body2" color="text.secondary">Ghaghreti, Betalghat</Typography>
-                              <Typography variant="body2" color="text.secondary">Nainital, UK 263134</Typography>
+                              <Typography variant="body2" color="text.secondary">Ghaghreti,</Typography>
+                              <Typography variant="body2" color="text.secondary">Betalghat</Typography>
+                              <Typography variant="body2" color="text.secondary">Nainital,</Typography>
+                              <Typography variant="body2" color="text.secondary">UK 263134</Typography>
                           </Item>
                         </Box>
                       <Box sx={{width: '50%'}}>
