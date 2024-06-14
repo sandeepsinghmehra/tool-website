@@ -51,7 +51,7 @@ const AllMenus = (data) => {
                     />
                   ))}
                  
-                  <Button
+                  {/* <Button
                     variant="contained" 
                     href="sandeepsm017@gmail.com"  
                     sx={{
@@ -62,7 +62,7 @@ const AllMenus = (data) => {
                     }}
                   >
                     Contact Us
-                  </Button>
+                  </Button> */}
                 </Box>
     )
 }
@@ -77,10 +77,15 @@ export function  Footer(){
           active: pathName === `/`
         },
         {
-          href: '/services',
-          label: "Our services",
-          active: pathName === `/services`
+          href: "image-convert/jpg-to-webp",
+          label: "Image Convert",
+          active: pathName === "/image-convert/jpg-to-webp"
         },
+        // {
+        //   href: '/services',
+        //   label: "Our services",
+        //   active: pathName === `/services`
+        // },
     ]
     
     const handleImageFormatChange = ( convertFrom:string, convertTo:string ) => router.push(`/image-convert/${convertFrom}-to-${convertTo}`);

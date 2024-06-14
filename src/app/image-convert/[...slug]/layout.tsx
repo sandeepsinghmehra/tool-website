@@ -6,7 +6,7 @@ export default function ImageConvertLayout({
     children, params,
 }: Readonly<{
     children: React.ReactNode;
-    params: { slug?: string[] }
+    params: { slug: string[] }
 }>) {
     return (
         <Box component={'section'}>

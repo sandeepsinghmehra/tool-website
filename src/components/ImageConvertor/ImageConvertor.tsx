@@ -1,9 +1,7 @@
 "use client"
-import { Avatar, Box, Button, Divider, Grid, List, ListItem, ListItemAvatar, ListItemButton, ListItemIcon, ListItemText, Paper, TextField, Typography, makeStyles, styled, useTheme } from '@mui/material';
+import { Box, Button, Divider, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Typography, styled, useTheme } from '@mui/material';
 import Image from 'next/image';
 import React, { useState } from 'react';
-import TabButton from '../Buttons/TabButton';
-import { Circle as CircleIcon } from '@mui/icons-material';
 import TaskAltRoundedIcon from '@mui/icons-material/TaskAltRounded';
 
 
@@ -21,8 +19,6 @@ const ImageConverter = ({inputFormat, outputFormat}) => {
     const theme:any = useTheme();
     const [selectedFile, setSelectedFile] = useState(null);
     const [convertedFile, setConvertedFile] = useState(null);
-    // const [inputFormat, setInputFormat] = useState('jpeg'); // Default input format
-    // const [outputFormat, setOutputFormat] = useState('webp'); // Default output format
     
     const [error, setError] = useState('');
 
@@ -154,7 +150,7 @@ const ImageConverter = ({inputFormat, outputFormat}) => {
                     margin: {xs: 'auto', md: 0},
                     justifyContent: 'center',
                     alignItems: 'center',
-                    border: '1px solid rgba(164, 164, 164, 0.13)',
+                    border: theme.palette.mode === 'light' ? '1px solid rgba(164, 164, 164, 0.13)': "1px solid #FFF",
                     borderRadius: '35px',
                     boxShadow: theme.palette.mode === 'light' ? `rgb(241, 241, 241) 1px 13px 12px 0px` : '#000',
                     width: {xs: '90%', md: '100%'}

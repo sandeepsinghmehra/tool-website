@@ -8,7 +8,7 @@ import TabButton from '@/components/Buttons/TabButton';
 const Tab = ({params}) => {
     const router = useRouter();
 
-    const paramsData = Object.keys(params).length !== 0 ? params?.slug?.[0] : "jpg-to-webp";
+    const paramsData = Object.keys(params).length !== 0 ? params?.slug[0] : "jpg-to-webp";
     const [inputFormat, outputFormat]: [string, string] = paramsData.split("-to-") as [string, string];
 
     const handleImageFormatChange = ( convertFrom:string, convertTo:string ) => router.push(`/image-convert/${convertFrom}-to-${convertTo}`);
