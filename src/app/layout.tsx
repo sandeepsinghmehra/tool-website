@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: '%s | Convert Master',
     default: "Convert Master", // a default is required when creating a template
   },
-  // description: "Convert Master Free online WebP to PNG / JPG converter. Upload your WebP file and click Convert to PNG. Then you can download or edit the produced PNG image.",
+  description: "Convert Master Free online converter Tools. Upload your file and click Convert. Then you can download your converted file.",
   twitter: {
     card: "summary_large_image"
   },
