@@ -16,9 +16,9 @@ function Home() {
       <Box component={"section"}>
         <Typography bgcolor={"orange"} variant="h4" align="center">Image Tools</Typography>
         <Grid container>
-          <Grid item textAlign={'center'}>
+          <Grid item textAlign={'center'} gap={1}>
             <Link href={"image-convert/jpeg-to-webp"}>
-              <Card sx={{bgcolor: 'blue', color: '#fff', my: 2}}>
+              <Card sx={{bgcolor: 'blue', color: '#fff', my: 2, mx: {xs: 2, md: 1}}}>
                 <CardContent>
                   <Box sx={{color: '#fff'}}>
                     <PhotoLibrary fontSize="large" />
