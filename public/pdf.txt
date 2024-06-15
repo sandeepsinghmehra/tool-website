@@ -1,0 +1,75 @@
+PDF to DOCX
+This free PDF to DOCX converter allows you to convert PDF documents to Office Open XML files, compatible will all major office software, providing the best possible quality of conversion.
+
+Select up to 20 PDF files from your device. Or drag them to the drop area. Wait for the compression to finish.
+
+Download converted files either separately or get them all at once, grouped in a ZIP archive.
+
+
+English
+English
+Deutsch
+Español
+Français
+Indonesia
+Italiano
+日本語
+한국어
+Nederlands
+Polski
+Português
+Русский
+Türkçe
+Українська
+Tiếng việt
+中文
+PDF to DOC
+DOC to PDF
+PDF to JPG
+JPG to PDF
+PDF to PNG
+PNG to PDF
+PDF Compressor
+Combine PDF
+Crop PDF
+PDF Kit
+PDF to DOCX Conversion
+When it comes to document formats, there are two that are widely used: PDF and DOC. Both have pros and cons, and under certain situations, no doubt that one may be better than the other.
+
+What is PDF?
+PDF, or Portable Document Format, is a popular file format as it allows documents to be exchanged regardless of the end user's software, hardware, or operating system. Simply put, PDF is device and OS-agnostic. This is why PDFs are often used when sending a document electronically since they preserve the original document's formatting, including links, images, fonts, and styles. This ensures that said document is displayed the way you want regardless of the device it is opened on.
+
+Typical use cases for PDF are eBooks, brochures, legal documents, and documents you want to print or display while preserving a specific style and format. On top of the features mentioned, PDFs also offer the possibility of being password protected, something valuable in cases when you want to add an additional layer of security to prevent changes to the original document. Additionally, the PDF format is intentionally difficult to edit unless you use specialized software.
+
+Pros and cons of PDF
+Pros:
+
+PDFs are cross-platform, meaning they can be viewed on any device or operating system.
+PDFs preserve the formatting of the original document.
+PDFs can be password protected for security.
+Due to the above, they can be a good option for exchanging documents that need to be printed on paper.
+Cons:
+
+PDFs can be difficult to edit.
+PDF documents created in portrait orientation and A4 sheet size can be challenging to view on small screens.
+PDFs were not designed for real-time collaboration.
+PDF files are usually bigger in size than DOC format since they need to store a lot of data for proper viewing.
+What is DOCX?
+A DOCX file is a Microsoft Word Open XML Format Document file. DOCX files are used by Microsoft Word 2007 and later. They are an XML-based document file format that is designed to be easy to read and write, so they can be easily opened in Microsoft Word and other word processors such as OpenOffice and LibreOffice. Moreover, DOCX documents can be opened and used in Google Docs and Office 365, facilitating real-time collaboration with other team members or clients.
+
+Pros and cons of DOCX file format
+Pros:
+
+DOCX files can be easily edited.
+DOCX files are smaller in size than PDFs.
+DOCX files enable real-time collaboration.
+Cons:
+
+Older DOC files can only be read by Microsoft Word or other compatible word-processing software.
+There is no guarantee that formatting will be preserved when sharing DOCX documents. This is most noticeable when you use fonts that other users do not have installed on their computers.
+When to use DOCX over PDF
+When you need hassle-free editing of a document.
+When you need to collaborate with team members or clients on a document, especially if it's in real-time.
+When you want to save a copy of a document that doesn't take up too much space, either locally or in the cloud.
+How to convert PDF to DOCX?
+Fortunately, converting PDF to DOCX is very easy. Whether you need to convert one document or several, pdf2docx.com makes it easy for you to do it. Just hit the “UPLOAD FILES” button and find the PDF file(s) you wish to convert. You can convert up to 20 files in one session.
