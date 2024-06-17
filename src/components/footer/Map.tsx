@@ -5,7 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import L from "leaflet";
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 // Convert StaticImageData to URL string
 const iconUrl = icon.src;
@@ -18,11 +18,19 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 const Map:React.FC<any> = () => {
-    const mapRef = useRef(null);
+    const mapRef = useRef<L.Map | null>(null);
     
     const latitude = 29.5591028661126;
     const longitude = 79.38037225150873;
-    
+
+    useEffect(() => {
+        return () => {
+            if (mapRef.current) {
+                mapRef.current.remove();
+                mapRef.current = null;
+            }
+        };
+    }, []);
     return (
         <MapContainer 
             ref={mapRef}
