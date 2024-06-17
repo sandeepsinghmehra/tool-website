@@ -162,7 +162,8 @@ const OptimizeCom = () => {
                                 sx={{
                                     margin: 0, 
                                     color: 'orange',
-                                    fontSize: {xs: '.5rem', md: '.7rem'} 
+                                    fontSize: {xs: '.5rem', md: '.7rem'}, 
+                                    width: {xs: "200px", sm: "200px"}
                                 }}>
                             {(selectedFile && selectedFile?.name) || "Choose Image File"}
                             </Button>
