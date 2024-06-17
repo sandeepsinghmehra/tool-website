@@ -129,7 +129,8 @@ const OptimizeCom = () => {
             position: 'absolute', 
             top: -17, 
             left: 16, 
-            backgroundColor: 'white', 
+            backgroundColor: theme.palette.mode === 'light' ? '#FFF': "#000",
+            color: theme.palette.mode === 'light' ? '#000': "#FFF",
             padding: '0 8px' 
           }}
         >
@@ -193,7 +194,8 @@ const OptimizeCom = () => {
               position: 'absolute', 
               top: -17, 
               left: 16, 
-              backgroundColor: 'white', 
+              backgroundColor: theme.palette.mode === 'light' ? '#FFF': "#000",
+              color: theme.palette.mode === 'light' ? '#000': "#FFF", 
               padding: '0 8px' 
             }}
           >
