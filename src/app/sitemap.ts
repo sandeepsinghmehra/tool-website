@@ -22,6 +22,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${BASE_URL}/image-optimize`,
             lastModified: new Date(),
         },
-        ...imageCovertRoutes
+        ...imageCovertRoutes,
+        {
+            url: `${BASE_URL}/text-to-bold`,
+            lastModified: new Date(),
+        }
     ]
 }
