@@ -1,13 +1,14 @@
 "use client"
 import React, { useState } from 'react';
 import { Box, Button, TextField, Typography, Paper, TextareaAutosize, Grid, IconButton } from '@mui/material';
-import { SaveAlt as SaveAltIcon, FileCopy as FileCopyIcon } from '@mui/icons-material'; 
+import { SaveAlt as SaveAltIcon, FileCopy as FileCopyIcon, Delete as DeleteIcon  } from '@mui/icons-material'; 
 import toBoldUnicode from './BoldUnicode';
 
 
 const BoldTextConverter = () => {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
+  const [isFile, setIsFile] = useState(false);
 
   const handleBoldConversion = () => {
     const boldedText = toBoldUnicode(inputText);
@@ -30,6 +31,7 @@ const BoldTextConverter = () => {
         const fileContent = e.target?.result;
         if (fileContent && typeof fileContent === 'string') {
           setInputText(fileContent);
+          setIsFile(true);
         }
       };
       reader.readAsText(file);
@@ -45,13 +47,17 @@ const BoldTextConverter = () => {
     element.click();
     document.body.removeChild(element);
   };
-
+  const handleDeleteText = () => {
+    setInputText('');
+    setOutputText('');
+    setIsFile(false);
+  }
   return (
     <Box component={"section"}>
       <Typography variant="h3" align='center' pt={2}>
         Text to Bold Converter
       </Typography>
-      <Box sx={{paddingY: 2}}>
+      <Box sx={{paddingY: 2, px: {xs: 2, md: 0}}}>
         <input
           accept=".txt"
           style={{ display: 'none' }}
@@ -65,8 +71,9 @@ const BoldTextConverter = () => {
           </Button>
         </label>
       </Box>
-      <Grid container columns={{ xs: 6, md: 12 }} spacing={2}>
+      <Grid container columns={{ xs: 6, md: 12 }} sx={{px: {xs: 2, md: 0}}} spacing={2}>
         <Grid item xs={6} md={6}>
+          <Box>
           <TextField
             label="Input Text"
             multiline
@@ -78,6 +85,10 @@ const BoldTextConverter = () => {
             variant="outlined"
             sx={{ marginBottom: 2 }}
           />
+          <IconButton onClick={handleDeleteText}>
+            <DeleteIcon sx={{color: 'red'}} />
+          </IconButton>
+          </Box>
           <Button
             variant="contained"
             color="primary"
@@ -88,6 +99,7 @@ const BoldTextConverter = () => {
           </Button>
         </Grid>
         <Grid item xs={6} md={6}>
+          <Box>
           <TextField
             label="Output Text"
             multiline
@@ -101,11 +113,12 @@ const BoldTextConverter = () => {
             variant="outlined"
             sx={{ marginBottom: 2 }}
           />
-          <IconButton onClick={handleFileDownload} sx={{ marginRight: 2 }}>
-            <SaveAltIcon />
-          </IconButton>
           <IconButton onClick={handleCopyToClipboard}>
-            <FileCopyIcon />
+            <FileCopyIcon sx={{color: 'blue'}} />
+          </IconButton>
+          </Box>
+          <IconButton onClick={handleFileDownload} sx={{ marginRight: 2 }} disabled={isFile}>
+            <SaveAltIcon sx={{color: 'green'}} /> 
           </IconButton>
         </Grid>
         
