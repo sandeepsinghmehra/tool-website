@@ -1,19 +1,20 @@
 "use client"
 import React, { useState } from 'react';
 import { Box, Button, TextField, Typography, Grid, IconButton, Switch } from '@mui/material';
-import { SaveAlt as SaveAltIcon, FileCopy as FileCopyIcon, Delete as DeleteIcon, FormatItalicOutlined as FormatItalicOutlinedIcon  } from '@mui/icons-material'; 
-import toBoldUnicode from './BoldUnicode';
+import { SaveAlt as SaveAltIcon, FileCopy as FileCopyIcon, Delete as DeleteIcon, FormatBoldOutlined  } from '@mui/icons-material'; 
+import toItalicUnicode from './ItalicUnicode';
 import toBoldItalicUnicode from './BoldItalicUnicode';
 
 
-const BoldTextConverter = () => {
+
+const ItalicTextConverter = () => {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
   const [isFile, setIsFile] = useState(false);
-  const [isItalic, setIsItalic] = useState(false);
+  const [isBold, setIsBold] = useState(false);
 
   const handleConversion = () => {
-    const convertedText = isItalic ? toBoldItalicUnicode(inputText) : toBoldUnicode(inputText);
+    const convertedText = isBold ? toBoldItalicUnicode(inputText) : toItalicUnicode(inputText);
     setOutputText(convertedText);
   };
 
@@ -54,40 +55,41 @@ const BoldTextConverter = () => {
     setOutputText('');
     setIsFile(false);
   }
-  const handleIsItalic = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsItalic(event.target.checked);
+  const handleIsBold = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsBold(event.target.checked);
     const convertedText = toBoldItalicUnicode(inputText);
     setOutputText(convertedText);
   };
 
+  
   return (
     <Box component={"section"}>
       <Typography variant="h3" align='center' pt={2}>
-        Text to Bold Converter
+        Text to Italic Converter
       </Typography>
-      <Box sx={{paddingY: 2, px: {xs: 2, md: 0}}}>
-        <input
-          accept=".txt"
-          style={{ display: 'none' }}
-          id="upload-file"
-          type="file"
-          onChange={handleFileUpload}
-        />
-        <label htmlFor="upload-file">
-          <Button variant="contained" component="span" sx={{ marginRight: 2 }}>
-            Upload Text File
-          </Button>
-        </label>
-      </Box>
-      <Box textAlign={'left'} sx={{px: {xs: 2, md: 0}}}>
-        <Button variant="outlined" component="span" sx={{ my: 1}}>
-          <Switch  
-            checked={isItalic}
-            onChange={handleIsItalic} 
-          />
-          <FormatItalicOutlinedIcon sx={{color: 'blue'}} />
-        </Button>
-      </Box>
+        <Box sx={{paddingY: 2, px: {xs: 2, md: 0}}}>
+            <input
+                accept=".txt"
+                style={{ display: 'none' }}
+                id="upload-file"
+                type="file"
+                onChange={handleFileUpload}
+            />
+            <label htmlFor="upload-file">
+                <Button variant="contained" component="span" sx={{ marginRight: 2 }}>
+                    Upload Text File
+                </Button>
+            </label>
+        </Box>
+        <Box textAlign={'left'} sx={{px: {xs: 2, md: 0}}}>
+            <Button variant="outlined" component="span" sx={{ my: 1}}>
+                <Switch  
+                    checked={isBold}
+                    onChange={handleIsBold} 
+                />
+                <FormatBoldOutlined sx={{color: 'blue'}} />
+            </Button>
+        </Box>
       <Grid container columns={{ xs: 6, md: 12 }} sx={{px: {xs: 2, md: 0}}} spacing={2}>
         <Grid item xs={6} md={6}>
           <Box>
@@ -112,7 +114,7 @@ const BoldTextConverter = () => {
             onClick={handleConversion}
             sx={{ marginBottom: 2 }}
           >
-            Convert to Bold
+            Convert to Italic
           </Button>
         </Grid>
         <Grid item xs={6} md={6}>
@@ -149,7 +151,7 @@ const BoldTextConverter = () => {
         }}
       >
         <Typography component={'h4'} variant='h6' color={"primary"}>
-          What is Bold Text Generator ?
+          What is Italic Text Generator ?
         </Typography>
         <Typography 
           variant='caption' 
@@ -157,11 +159,11 @@ const BoldTextConverter = () => {
               py: '2px',
           }}
         >
-          Bold Text Generator is a convenient online tool designed to transform regular text into bold style using standard Unicode characters. Whether you are looking for a bold font generator or simply need to convert text to bold format, this tool is ideal for the job. It enables you to effortlessly style your text in bold, making it suitable for copying and pasting onto any text-based platform. With this free online converter, you can quickly enhance the appearance of your text, ensuring it stands out wherever you use it.
+          Italic Text Generator is a convenient online tool designed to transform regular text into Italic style using standard Unicode characters. Whether you are looking for a ilatic font generator or simply need to convert text to italic format, this tool is ideal for the job. It enables you to effortlessly style your text in italic, making it suitable for copying and pasting onto any text-based platform. With this free online converter, you can quickly enhance the appearance of your text, ensuring it stands out wherever you use it.
         </Typography>
       </Box>
     </Box>
   );
 };
 
-export default BoldTextConverter;
+export default ItalicTextConverter;

@@ -1,4 +1,4 @@
-import { FormatBold, PhotoLibrary } from "@mui/icons-material";
+import { FormatBold as FormatBoldIcon, FormatItalic as FormatItalicIcon, PhotoLibrary } from "@mui/icons-material";
 import { Box, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -64,7 +64,7 @@ function Home() {
               <Card sx={{bgcolor: 'blue', color: '#fff', my: 2, mx: {xs: 2, md: 1}}}>
                 <CardContent>
                   <Box sx={{color: '#fff'}}>
-                    <FormatBold fontSize="large" />
+                    <FormatBoldIcon fontSize="large" />
                   </Box>
                   <Typography>Text</Typography>
                   <Typography>To</Typography>
@@ -73,7 +73,20 @@ function Home() {
               </Card>
             </Link>
           </Grid>
-          <Grid item></Grid>
+          <Grid item  textAlign={'center'} gap={1}>
+            <Link href={"/text-to-italic"}>
+              <Card sx={{bgcolor: 'blue', color: '#fff', my: 2, mx: {xs: 2, md: 1}}}>
+                <CardContent>
+                  <Box sx={{color: '#fff'}}>
+                    <FormatItalicIcon fontSize="large" />
+                  </Box>
+                  <Typography>Text</Typography>
+                  <Typography>To</Typography>
+                  <Typography>Italic Text</Typography>
+                </CardContent>
+              </Card>
+            </Link>
+          </Grid>
           <Grid item></Grid>
           <Grid item></Grid>
         </Grid>
