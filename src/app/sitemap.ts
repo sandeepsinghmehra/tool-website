@@ -12,27 +12,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ];
     const imageCovertRoutes = [];
 
-    allRoutes.map((route)=>imageCovertRoutes.push({url: `${BASE_URL}/${route.slug}`, lastModified: new Date(), }))
+    allRoutes.map((route)=>imageCovertRoutes.push({url: `${BASE_URL}image-convert/${route.slug}`, lastModified: new Date(), }))
     return [
         {
             url: BASE_URL,
             lastModified: new Date(),
         },
         {
-            url: `${BASE_URL}/image-optimize`,
+            url: `${BASE_URL}image-optimize`,
             lastModified: new Date(),
         },
         ...imageCovertRoutes,
         {
-            url: `${BASE_URL}/text-to-bold`,
+            url: `${BASE_URL}text-to-bold`,
             lastModified: new Date(),
         },
         {
-            url: `${BASE_URL}/text-to-italic`,
+            url: `${BASE_URL}text-to-italic`,
             lastModified: new Date(),
         },
         {
-            url: `${BASE_URL}/word-counter`,
+            url: `${BASE_URL}word-counter`,
             lastModified: new Date(),
         }
     ]
