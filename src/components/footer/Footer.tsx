@@ -2,7 +2,7 @@
 import React from "react";
 import { useTheme, Paper, Typography, Container, Box, Stack, Grid, Button } from "@mui/material";
 import { experimentalStyled as styled } from '@mui/material/styles';
-import Map from "./Map";
+// import Map from "./Map";
 import { useThemeToggle } from "../theme/ThemeProvider";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
@@ -140,11 +140,11 @@ export function  Footer(){
                         </Item>
                       </Box>
                     </Grid>
-                    <Grid item xs={4} sm={4} md={4}>
+                    {/* <Grid item xs={4} sm={4} md={4}>
                         <Item sx={{ height: {xs: '100%', md: '15rem' }, alignItems: "center", alignContent: 'center' }}>
                             <Map />
                         </Item>
-                    </Grid>
+                    </Grid> */}
                 </Grid>
             </Box>
             <Box 
