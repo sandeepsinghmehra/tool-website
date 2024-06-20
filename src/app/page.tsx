@@ -1,4 +1,4 @@
-import { FormatBold as FormatBoldIcon, FormatItalic as FormatItalicIcon, PhotoLibrary } from "@mui/icons-material";
+import { Countertops, FormatBold as FormatBoldIcon, FormatItalic as FormatItalicIcon, PhotoLibrary } from "@mui/icons-material";
 import { Box, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -87,6 +87,27 @@ function Home() {
               </Card>
             </Link>
           </Grid>
+          <Grid item></Grid>
+          <Grid item></Grid>
+        </Grid>
+      </Box>
+      <Box component={"section"}>
+        <Typography bgcolor={"orange"} variant="h4" align="center">Other Tools</Typography>
+        <Grid container>
+          <Grid item textAlign={'center'} gap={1}>
+            <Link href={"word-counter"}>
+              <Card sx={{bgcolor: 'blue', color: '#fff', my: 2, mx: {xs: 2, md: 1}}}>
+                <CardContent>
+                  <Box sx={{color: '#fff'}}>
+                    <Countertops fontSize="large" />
+                  </Box>
+                  <Typography>Word</Typography>
+                  <Typography>Counter</Typography>
+                </CardContent>
+              </Card>
+            </Link>
+          </Grid>
+          <Grid item></Grid>
           <Grid item></Grid>
           <Grid item></Grid>
         </Grid>

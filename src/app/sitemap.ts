@@ -30,6 +30,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         {
             url: `${BASE_URL}/text-to-italic`,
             lastModified: new Date(),
+        },
+        {
+            url: `${BASE_URL}/word-counter`,
+            lastModified: new Date(),
         }
     ]
 }

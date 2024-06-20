@@ -6,6 +6,7 @@ import Map from "./Map";
 import { useThemeToggle } from "../theme/ThemeProvider";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import { BASE_URL } from "@/config/constants";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#000' : '#fff',
@@ -50,19 +51,6 @@ const AllMenus = (data) => {
                       active={route.active}
                     />
                   ))}
-                 
-                  {/* <Button
-                    variant="contained" 
-                    href="sandeepsm017@gmail.com"  
-                    sx={{
-                      height: '40px',
-                      bgcolor: 'contained',
-                      color: "#fff",
-                      my: 1
-                    }}
-                  >
-                    Contact Us
-                  </Button> */}
                 </Box>
     )
 }
@@ -81,11 +69,6 @@ export function  Footer(){
           label: "Image Convert",
           active: pathName === "/image-convert/jpg-to-webp"
         },
-        // {
-        //   href: '/services',
-        //   label: "Our services",
-        //   active: pathName === `/services`
-        // },
     ]
     
     const handleImageFormatChange = ( convertFrom:string, convertTo:string ) => router.push(`/image-convert/${convertFrom}-to-${convertTo}`);
@@ -166,7 +149,6 @@ export function  Footer(){
             </Box>
             <Box 
               sx={{
-                // bgcolor: "blue", 
                 height: '2rem', 
                 display: 'flex', 
                 flexDirection: {xs: "column", md: 'row'},
@@ -175,7 +157,7 @@ export function  Footer(){
               }} 
             >
               <Box>
-                Copyright © 2024 - convertmaster.com | All rights reserved
+                Copyright © 2024 - {BASE_URL} | All rights reserved
               </Box>
               <Box>
                 <CustomLink 
