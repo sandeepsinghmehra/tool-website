@@ -86,6 +86,17 @@ export default function RootLayout({
             <Footer />
           </ThemeProvider>
         </Box>
+        {/* <!-- Google Tag Manager (noscript) --> */}
+        <noscript>
+          <iframe 
+            src="https://www.googletagmanager.com/ns.html?id=GTM-P246DK6T"
+            height="0" 
+            width="0" 
+            style={{ display: "none", visibility: "hidden" }}
+          >
+          </iframe>
+        </noscript>
+        {/* <!-- End Google Tag Manager (noscript) --> */}
         </body>
     </html>
   );
