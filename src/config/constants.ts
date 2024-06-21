@@ -1,1 +1,1 @@
-export const BASE_URL = process.env.NODE_ENV === "test" ? "https://tool-website-beta.vercel.app/": process.env.NODE_ENV === "production" ? "https://convert-master.online/" : "http://localhost:3000";
+export const BASE_URL = process.env.NODE_ENV === "test" ? "https://tool-website-beta.vercel.app/": process.env.NODE_ENV === "production" ? "https://www.convert-master.online/" : "http://localhost:3000/";
