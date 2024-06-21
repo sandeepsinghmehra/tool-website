@@ -64,11 +64,11 @@ export function  Footer(){
           label: "Home",
           active: pathName === `/`
         },
-        {
-          href: "image-convert/jpg-to-webp",
-          label: "Image Convert",
-          active: pathName === "/image-convert/jpg-to-webp"
-        },
+        // {
+        //   href: "image-convert/jpg-to-webp",
+        //   label: "Image Convert",
+        //   active: pathName === "/image-convert/jpg-to-webp"
+        // },
     ]
     
     const handleImageFormatChange = ( convertFrom:string, convertTo:string ) => router.push(`/image-convert/${convertFrom}-to-${convertTo}`);

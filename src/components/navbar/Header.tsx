@@ -33,11 +33,11 @@ export function  Header(){
         label: "Home",
         active: pathName === `/`
       },
-      {
-        href: "image-convert/jpeg-to-webp",
-        label: "Image Convert",
-        active: pathName === "/image-convert/jpeg-to-webp"
-      },
+      // {
+      //   href: "image-convert/jpeg-to-webp",
+      //   label: "Image Convert",
+      //   active: pathName === "/image-convert/jpeg-to-webp"
+      // },
       // {
       //   href: '/services',
       //   label: "Our services",
