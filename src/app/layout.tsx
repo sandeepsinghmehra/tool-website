@@ -74,8 +74,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="google-site-verification" content="gcYNBWqBdyY8i1Y1LtL39rmYsmdMMRokCwsPppsJen4" />
+        <GoogleAnalytics />
       </head>
-      <GoogleAnalytics />
+      
       <body className={inter.className}>
         <Box sx={{ width: {xs: "100%", md:"80%"}, margin: 'auto'}}>
           <ThemeProvider>
