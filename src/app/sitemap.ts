@@ -32,6 +32,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
             lastModified: new Date(),
         },
         {
+            url: `${BASE_URL}text-to-audio`,
+            lastModified: new Date(),
+        },
+        {
             url: `${BASE_URL}word-counter`,
             lastModified: new Date(),
         }
