@@ -1,4 +1,4 @@
-import { Countertops, FormatBold as FormatBoldIcon, FormatItalic as FormatItalicIcon, PhotoLibrary } from "@mui/icons-material";
+import { Countertops, FormatBold as FormatBoldIcon, FormatItalic as FormatItalicIcon, PhotoLibrary, SpeakerNotes as SpeakerNotesIcon } from "@mui/icons-material";
 import { Box, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -83,6 +83,20 @@ function Home() {
                   <Typography>Text</Typography>
                   <Typography>To</Typography>
                   <Typography>Italic Text</Typography>
+                </CardContent>
+              </Card>
+            </Link>
+          </Grid>
+          <Grid item  textAlign={'center'} gap={1}>
+            <Link href={"/text-to-audio"}>
+              <Card sx={{bgcolor: 'blue', color: '#fff', my: 2, mx: {xs: 2, md: 1}}}>
+                <CardContent>
+                  <Box sx={{color: '#fff'}}>
+                    <SpeakerNotesIcon fontSize="large" />
+                  </Box>
+                  <Typography>Text</Typography>
+                  <Typography>To</Typography>
+                  <Typography>Speech</Typography>
                 </CardContent>
               </Card>
             </Link>

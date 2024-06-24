@@ -1,5 +1,4 @@
 import TextToAudioConverter from "@/components/text/TextToAudio";
-// import TextToAudioConverter2 from "@/components/text/TextToAudio2";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,7 +12,6 @@ function TextAudioConvert() {
   return (
     <main>
       <TextToAudioConverter />
-      {/* <TextToAudioConverter2 /> */}
     </main>
   );
 }

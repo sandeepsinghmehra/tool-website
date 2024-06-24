@@ -212,23 +212,21 @@ const TextToAudioConverter = () => {
                         Convert to Audio
                     </Button>
                     
-                    <Button variant="contained" onClick={captureSpeech} type="button" fullWidth={false}>
+                    <Button variant="contained" onClick={captureSpeech} sx={{display: {xs: 'none', md: 'block'}}} type="button" fullWidth={false}>
                         Preparing Download
                     </Button>
                 
             
       
                 {audio ? (
-                    <>
-                    {/* <Box sx={{py: 1, display: 'flex', flexDirection: {xs: 'column', md: 'row'}, justifyContent: {xs: 'center', }, alignItems: {xs: 'center', } }} gap={1}> */}
+                    <Box sx={{display: {xs: 'none', md: 'block'}}}>
                         <audio src={audio} controls></audio>
                         <Button variant="outlined" onClick={captureSpeech} type="button" fullWidth={false}>
                             <a download href={audio}>
                                 Download Recording
                             </a> 
                         </Button>
-                    {/* </Box> */}
-                    </>
+                    </Box>
                     ) : null
                 } 
                 </Box>
