@@ -74,7 +74,7 @@ const BoldTextConverter = () => {
           onChange={handleFileUpload}
         />
         <label htmlFor="upload-file">
-          <Button variant="contained" component="span" sx={{ marginRight: 2 }}>
+          <Button variant="contained" component="span" sx={{ marginRight: 2, bgcolor: "blue" }}>
             Upload Text File
           </Button>
         </label>
@@ -110,7 +110,7 @@ const BoldTextConverter = () => {
             variant="contained"
             color="primary"
             onClick={handleConversion}
-            sx={{ marginBottom: 2 }}
+            sx={{ marginBottom: 2,  bgcolor: "blue" }}
           >
             Convert to Bold
           </Button>

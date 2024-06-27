@@ -169,7 +169,7 @@ const ImageConverter = ({inputFormat, outputFormat}) => {
                             sx={{
                                 margin: 0, 
                                 color: 'orange',
-                                fontSize: {xs: '.7rem', md: '.9rem'} 
+                                fontSize: {xs: '.7rem', md: '.8rem'},
                             }}>
                         {(selectedFile && selectedFile?.name) || "Choose Image File"}
                         </Button>
@@ -184,7 +184,8 @@ const ImageConverter = ({inputFormat, outputFormat}) => {
                         onClick={getConvertedFile} 
                         sx={{ 
                             borderRadius: '35px', 
-                            fontSize: {xs: '.7rem', md: '.9rem'} 
+                            fontSize: {xs: '.7rem', md: '.9rem'},
+                            bgcolor: "blue" 
                         }}
                         disabled={!selectedFile}
                     >
@@ -197,7 +198,7 @@ const ImageConverter = ({inputFormat, outputFormat}) => {
         <Paper 
             elevation={3} 
             sx={{
-                width: { xs: '90%', md:'60%'}, 
+                width: { xs: '90%', md:'80%'}, 
                 m: 'auto', 
                 height: {xs: '100%', md:'20rem'}, 
                 display: 'flex',
@@ -263,22 +264,16 @@ const ImageConverter = ({inputFormat, outputFormat}) => {
                                 }}
                             />
                         </Box>
-                        <Button variant="contained" color="primary" sx={{mt: 1 }} onClick={handleDownload}>Download Image</Button>
+                        <Button variant="contained" color="primary" sx={{mt: 1,  bgcolor: "blue" }} onClick={handleDownload}>Download Image</Button>
                     </div>
                 )}
             </Box>
         </Paper> 
         )}
 
-      <Box 
-        sx={{
-            pt: 5,
-            width: {xs: '90%', md: '80%'},
-            margin: 'auto'
-        }}
-      >
+      <Box sx={{pt: 5,margin: 'auto'}}>
         <Typography component={'h4'} variant='h6' color={"primary"}>
-        Effortlessly Convert Your Images with Our Online PNG to WEBP Converter
+            Effortlessly Convert Your Images with Our Online PNG to WEBP Converter
         </Typography>
         <Typography 
             variant='caption' 

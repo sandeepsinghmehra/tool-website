@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, createContext, useMemo, useContext } from 'react';
-import { ThemeProvider as MuiThemeProvider, CssBaseline } from '@mui/material';
+import { ThemeProvider as MuiThemeProvider, CssBaseline, Box } from '@mui/material';
 import { lightTheme, darkTheme } from './theme';
 
 const ThemeToggleContext:any = createContext({});
@@ -18,9 +18,11 @@ const ThemeProvider = ({ children }) => {
 
     return (
         <ThemeToggleContext.Provider value={toggleTheme}>
-            <MuiThemeProvider theme={theme}>
+            <MuiThemeProvider theme={theme} >
                 <CssBaseline />
-                {children}
+                <Box sx={{ bgcolor: theme.palette.mode === 'light' ? '#fff': "#000", px: {xs: 0, md: 2}}}>
+                    {children}
+                </Box>
             </MuiThemeProvider>
         </ThemeToggleContext.Provider>
     );

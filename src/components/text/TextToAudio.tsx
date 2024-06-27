@@ -191,7 +191,7 @@ const TextToAudioConverter = () => {
                 min={0.5}
                 max={2}
                 valueLabelDisplay="auto"
-                sx={{ marginBottom: 2 }}
+                sx={{ marginBottom: 2, color: 'blue' }}
             />
             <Typography gutterBottom>Rate</Typography>
             <Slider
@@ -203,16 +203,27 @@ const TextToAudioConverter = () => {
                 min={0.5}
                 max={2}
                 valueLabelDisplay="auto"
-                sx={{ marginBottom: 2 }}
+                sx={{ marginBottom: 2, color: 'blue' }}
             />
             
             <Box gap={1}>
                 <Box sx={{py: 1, display: 'flex', flexDirection: {xs: 'column', md: 'row'} }} gap={1} >
-                    <Button variant="contained" onClick={handleConvert} fullWidth={false}>
+                    <Button 
+                        variant="contained" 
+                        onClick={handleConvert} 
+                        fullWidth={false}
+                        sx={{ bgcolor: "blue" }}
+                    >
                         Convert to Audio
                     </Button>
                     
-                    <Button variant="contained" onClick={captureSpeech} sx={{display: {xs: 'none', md: 'block'}}} type="button" fullWidth={false}>
+                    <Button 
+                        variant="contained" 
+                        onClick={captureSpeech} 
+                        sx={{display: {xs: 'none', md: 'block' }, bgcolor: "blue"}} 
+                        type="button" 
+                        fullWidth={false}
+                    >
                         Preparing Download
                     </Button>
                 
@@ -221,7 +232,13 @@ const TextToAudioConverter = () => {
                 {audio ? (
                     <Box sx={{display: {xs: 'none', md: 'block'}}}>
                         <audio src={audio} controls></audio>
-                        <Button variant="outlined" onClick={captureSpeech} type="button" fullWidth={false}>
+                        <Button 
+                            variant="outlined" 
+                            onClick={captureSpeech} 
+                            type="button" 
+                            fullWidth={false}
+                            sx={{ bgcolor: "blue" }}
+                        >
                             <a download href={audio}>
                                 Download Recording
                             </a> 

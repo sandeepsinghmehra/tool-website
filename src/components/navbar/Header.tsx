@@ -186,8 +186,8 @@ const AllMenus = (data) => {
                   variant="contained"  
                   href="sandeepsm017@gmail.com"  
                   sx={{
-                    bgcolor: "contained",
-                    color: "#fff",
+                     bgcolor: "blue",
+                      color: "#fff",
                   }}
                   size="medium"
                 >
@@ -235,7 +235,7 @@ const AllMenusForMobile = (data) => {
                   href="sandeepsm017@gmail.com"  
                   sx={{
                     height: '60px',
-                    bgcolor: 'contained',
+                    bgcolor: "blue",
                     color: "#fff",
                   }}
                   size="medium"

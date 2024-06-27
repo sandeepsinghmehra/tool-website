@@ -5,7 +5,7 @@ const ThemeProvider = dynamic(()=>import("@/components/theme/ThemeProvider"), {s
 import { Header } from "@/components/navbar/Header";
 import { Footer } from "@/components/footer/Footer";
 import { Analytics } from '@vercel/analytics/react';
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const inter = Inter({ subsets: ["latin"], display: 'swap' });
@@ -70,6 +70,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <html lang="en">
       <head>

@@ -44,7 +44,7 @@ const WordCounter = () => {
 
   return (
     <Box component={"section"}>
-        <Typography variant="h3" align='center' pt={2}>
+        <Typography variant="h1" align='center' pt={2} sx={{fontSize: '2.5rem'}}>
             Word Counter Tool
         </Typography>
         <TextField
@@ -56,7 +56,10 @@ const WordCounter = () => {
             onChange={(e) => setText(e.target.value)}
             fullWidth
             variant="outlined"
-            sx={{paddingY: 2, px: {xs: 2, md: 0}, marginBottom: 2}}
+            sx={{
+                px: {xs: 2, md: 0}, 
+                marginBottom: 2
+            }}
         />
         <Paper elevation={1} sx={{ padding: 2, marginBottom: 2 }}>
             <Typography variant="h6">Statistics</Typography>

@@ -382,7 +382,8 @@ const OptimizeCom = () => {
         onClick={getConvertedFile} 
         sx={{ 
           borderRadius: '35px', 
-          fontSize: {xs: '.7rem', md: '.9rem'} 
+          fontSize: {xs: '.7rem', md: '.9rem'},
+          bgcolor: "blue"  
         }}
         disabled={!selectedFile}
       >
@@ -393,7 +394,7 @@ const OptimizeCom = () => {
         <Paper 
             elevation={3} 
             sx={{
-                width: { xs: '90%', md:'60%'}, 
+                width: { xs: '90%', md:'80%'}, 
                 m: '10px auto', 
                 height: {xs: '100%', md:'20rem'}, 
                 display: 'flex',
@@ -459,18 +460,12 @@ const OptimizeCom = () => {
                                 }}
                             />
                         </Box>
-                        <Button variant="contained" color="primary" sx={{mt: 1 }} onClick={handleDownload}>Download Image</Button>
+                        <Button variant="contained" color="primary" sx={{mt: 1, bgcolor: "blue" }} onClick={handleDownload}>Download Image</Button>
                     </div>  )}
             </Box>
         </Paper> 
       )}
-       <Box 
-        sx={{
-            pt: 5,
-            width: {xs: '90%', md: '80%'},
-            margin: 'auto'
-        }}
-      >
+      <Box sx={{pt: 5, margin: 'auto'}}>
         <Typography component={'h4'} variant='h6' color={"primary"}>
         Effortlessly Convert Your Images with Our Online Image Resizer and Optimizer 
         </Typography>

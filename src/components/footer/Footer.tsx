@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import { useTheme, Paper, Typography, Container, Box, Stack, Grid, Button } from "@mui/material";
+import { useTheme, Typography, Container, Box, Stack, Grid, Button } from "@mui/material";
 import { experimentalStyled as styled } from '@mui/material/styles';
 // import Map from "./Map";
 import { useThemeToggle } from "../theme/ThemeProvider";
@@ -8,7 +8,7 @@ import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { BASE_URL } from "@/config/constants";
 
-const Item = styled(Paper)(({ theme }) => ({
+const Item = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#000' : '#fff',
     ...theme.typography.body2,
     // padding: theme.spacing(1),
@@ -77,7 +77,7 @@ export function  Footer(){
         <>
             <Box sx={{ flexGrow: 1, padding: {xs: '5px', md: '20px 20px'}, bgcolor: theme.palette.mode === 'light' ? '#fff': "#000" }}>
                 <Grid  container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 4, md: 12 }}>
-                    <Grid item xs={4} sm={4} md={4} sx={{display: 'flex', flexDirection: {xs: 'row', md: 'row'}}}>
+                    <Grid item xs={4} sm={4} md={6} sx={{display: 'flex', flexDirection: {xs: 'row', md: 'row'}}}>
                         <Box sx={{width: '50%'}}>
                           <Typography variant="h6" color={theme.palette.mode === 'light' ? "#000": "#fff"} sx={{fontSize: "500"}}>Menus</Typography>
                           {AllMenus(data)}
@@ -121,7 +121,7 @@ export function  Footer(){
                         
                     </Grid>
                     
-                    <Grid item xs={4} sm={4} md={4} sx={{display: 'flex', flexDirection: {xs: 'row', md: 'row'}}}>
+                    <Grid item xs={4} sm={4} md={6} sx={{display: 'flex', flexDirection: {xs: 'row', md: 'row'}}}>
                      
                       <Box sx={{width: '50%'}}>
                           <Item sx={{ height: {xs: '100%', md: '15rem' } }}>
