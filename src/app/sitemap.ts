@@ -42,6 +42,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         {
             url: `${BASE_URL}word-counter`,
             lastModified: new Date(),
-        }
+        },
+        {
+            url: `${BASE_URL}privacy-policy`,
+            lastModified: new Date(),
+        },
+        {
+            url: `${BASE_URL}term-and-conditions`,
+            lastModified: new Date(),
+        },
     ]
 }
