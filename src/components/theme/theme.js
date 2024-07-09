@@ -11,6 +11,7 @@ const lightTheme = createTheme({
     },
   },
   typography: {
+    fontSize: 16, // Set the default font size for the entire project
     fontFamily: 'Roboto, sans-serif',
   },
 });
@@ -26,6 +27,7 @@ const darkTheme = createTheme({
     },
   },
   typography: {
+    fontSize: 16, // Set the default font size for the entire project
     fontFamily: 'Roboto, sans-serif',
   },
 });

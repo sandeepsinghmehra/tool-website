@@ -23,6 +23,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
             lastModified: new Date(),
         },
         {
+            url: `${BASE_URL}image-optimize/whatsapp`,
+            lastModified: new Date(),
+        },
+        {
+            url: `${BASE_URL}image-optimize/twitter`,
+            lastModified: new Date(),
+        },
+        {
+            url: `${BASE_URL}image-optimize/tiktok`,
+            lastModified: new Date(),
+        },
+        {
+            url: `${BASE_URL}image-optimize/linkedin`,
+            lastModified: new Date(),
+        },
+        {
+            url: `${BASE_URL}image-optimize/instagram`,
+            lastModified: new Date(),
+        },
+        {
+            url: `${BASE_URL}image-optimize/facebook`,
+            lastModified: new Date(),
+        },
+        {
             url: `${BASE_URL}image-resizer`,
             lastModified: new Date(),
         },

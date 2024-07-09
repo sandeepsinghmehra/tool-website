@@ -149,15 +149,15 @@ export function  Footer(){
             </Box>
             <Box 
               sx={{
-                height: '2rem', 
+                height: {xs: '100%', md:'2rem'}, 
                 display: 'flex', 
                 flexDirection: {xs: "column", md: 'row'},
                 alignItems: 'center',
-                justifyContent: 'space-around'
+                justifyContent: {xs: 'center', md: 'space-around'},
               }} 
             >
-              <Box>
-                Copyright © 2024 - {BASE_URL} | All rights reserved
+              <Box sx={{textAlign: 'center'}}>
+                Copyright © 2024 - {BASE_URL} | All Rights Reserved
               </Box>
               <Box>
                 <CustomLink 
