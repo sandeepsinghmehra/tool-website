@@ -1,3 +1,4 @@
+import HeroSection from "@/components/Hero/Home/Hero";
 import { AspectRatio as AspectRatioIcon, Countertops, Facebook, FormatBold as FormatBoldIcon, FormatItalic as FormatItalicIcon, Instagram, LinkedIn, PhotoLibrary, SpeakerNotes as SpeakerNotesIcon, Transcribe, Twitter, WhatsApp } from "@mui/icons-material";
 import { Box, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import type { Metadata } from "next";
@@ -6,14 +7,14 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Home | Convert Master",
-  // description: "",
 };
 
 function Home() {
   
   return (
     <main>
-      <Box component={"section"}>
+      <HeroSection />
+      <Box component={"section"} sx={{marginTop: 5}}>
         <Typography bgcolor={"orange"} variant="h4" align="center">Image Tools</Typography>
         <Grid container>
           <Grid item xs={12} sm={6} md={3} textAlign={'center'} gap={1}>
