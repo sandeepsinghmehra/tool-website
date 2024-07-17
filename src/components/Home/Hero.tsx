@@ -68,7 +68,7 @@ const HeroSection = () => {
                     </Typography>
                     <Typography
                         variant="h2"
-                        component={motion.p}
+                        component={motion.h2}
                         initial={{ y: 50, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 1, delay: 0.5 }}
