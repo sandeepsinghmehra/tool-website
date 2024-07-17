@@ -54,21 +54,27 @@ const HeroSection = () => {
             <HeroContent>
                 <Container>
                     <Typography
-                        variant="h2"
+                        variant="h1"
                         component={motion.h1}
                         initial={{ y: -50, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 1 }}
                         gutterBottom
+                        sx={{
+                            fontSize: '72px'
+                        }}
                     >
                         Effortlessly Resize Images and Convert Text Online
                     </Typography>
                     <Typography
-                        variant="h5"
+                        variant="h2"
                         component={motion.p}
                         initial={{ y: 50, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 1, delay: 0.5 }}
+                        sx={{
+                            fontSize: '30px'
+                        }}
                     >
                         Maintain quality, save time, and enhance productivity with our free tools.
                     </Typography>
