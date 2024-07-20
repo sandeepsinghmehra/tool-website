@@ -1,12 +1,13 @@
 "use client"
 import React, { useState } from 'react';
-import { Box, Button, TextField, Typography, Grid, IconButton, Switch } from '@mui/material';
+import { Box, Button, TextField, Typography, Grid, IconButton, Switch, useTheme } from '@mui/material';
 import { SaveAlt as SaveAltIcon, FileCopy as FileCopyIcon, Delete as DeleteIcon, FormatItalicOutlined as FormatItalicOutlinedIcon  } from '@mui/icons-material'; 
 import toBoldUnicode from './BoldUnicode';
 import toBoldItalicUnicode from './BoldItalicUnicode';
 
 
 const BoldTextConverter = () => {
+  const theme:any = useTheme();
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
   const [isFile, setIsFile] = useState(false);
@@ -100,7 +101,16 @@ const BoldTextConverter = () => {
             onChange={(e) => setInputText(e.target.value)}
             fullWidth
             variant="outlined"
-            sx={{ marginBottom: 2 }}
+            sx={{ 
+              marginBottom: 2,
+              color: theme.palette.mode === 'light' ? "#000": "#fff",
+              '& label.Mui-focused': {
+                  color: theme.palette.mode === 'light' ? '#000' : '#fff',
+              },
+            }}
+            InputLabelProps={{
+                style: { color: theme.palette.mode === 'light' ? '#000' : '#fff' },
+            }}
           />
           <IconButton onClick={handleDeleteText}>
             <DeleteIcon sx={{color: 'red'}} />
@@ -128,7 +138,16 @@ const BoldTextConverter = () => {
             }}
             fullWidth
             variant="outlined"
-            sx={{ marginBottom: 2 }}
+            sx={{ 
+              marginBottom: 2,
+              color: theme.palette.mode === 'light' ? "#000": "#fff",
+              '& label.Mui-focused': {
+                  color: theme.palette.mode === 'light' ? '#000' : '#fff',
+              },
+            }}
+            InputLabelProps={{
+                style: { color: theme.palette.mode === 'light' ? '#000' : '#fff' },
+            }}
           />
           <IconButton onClick={handleCopyToClipboard}>
             <FileCopyIcon sx={{color: 'blue'}} />
@@ -148,7 +167,7 @@ const BoldTextConverter = () => {
           margin: 'auto'
         }}
       >
-        <Typography component={'h4'} variant='h6' color={"primary"}>
+        <Typography component={'h4'} variant='h6' color={theme.palette.mode === 'light' ? "primary": "#fff"}>
           What is Bold Text Generator ?
         </Typography>
         <Typography 

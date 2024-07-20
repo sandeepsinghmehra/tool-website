@@ -26,6 +26,15 @@ const FeatureTextCardContainer = () => {
             </CustomStyleLink>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
+            <CustomStyleLink href={"text-repeater"}>
+                <CustomCardFeatureHome
+                    image={"/assets/text-repeater.jpeg"}
+                    title={"Text Repeat Generator"}
+                    description={"Repeat text effortlessly, save time!"}
+                />
+            </CustomStyleLink>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
             <CustomStyleLink href={"/text-to-bold"}>
                 <CustomCardFeatureHome
                     image={"/assets/text-bold.jpeg"}
