@@ -33,6 +33,16 @@ export function  Header(){
         label: "Home",
         active: pathName === `/`
       },
+      {
+        href: `/about`,
+        label: "About",
+        active: pathName === `/about`
+      },
+      {
+        href: `/contact`,
+        label: "Contact Us",
+        active: pathName === `/contact`
+      },
       // {
       //   href: "image-convert/jpeg-to-webp",
       //   label: "Image Convert",
@@ -182,7 +192,7 @@ const AllMenus = (data) => {
                 >
                   <LinkedIn />
                 </IconButton> */}
-                <Button 
+                {/* <Button 
                   variant="contained"  
                   href="sandeepsm017@gmail.com"  
                   sx={{
@@ -192,7 +202,7 @@ const AllMenus = (data) => {
                   size="medium"
                 >
                   Contact Us
-                </Button>
+                </Button> */}
               </Box>
   )
 }
@@ -229,7 +239,7 @@ const AllMenusForMobile = (data) => {
                 >
                   <LinkedIn />
                 </IconButton> */}
-                <Button 
+                {/* <Button 
                   variant="contained" 
                   fullWidth 
                   href="sandeepsm017@gmail.com"  
@@ -241,7 +251,7 @@ const AllMenusForMobile = (data) => {
                   size="medium"
                 >
                   Contact Us
-                </Button>
+                </Button> */}
               </Box>
   )
 }
