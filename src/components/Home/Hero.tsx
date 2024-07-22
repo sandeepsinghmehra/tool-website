@@ -61,7 +61,7 @@ const HeroSection = () => {
                         transition={{ duration: 1 }}
                         gutterBottom
                         sx={{
-                            fontSize: '72px'
+                            fontSize: { xs: '60px', md:'72px'}
                         }}
                     >
                         Effortlessly Resize Images and Convert Text Online
@@ -73,7 +73,7 @@ const HeroSection = () => {
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 1, delay: 0.5 }}
                         sx={{
-                            fontSize: '30px'
+                            fontSize: { xs: '24px', md:'30px'}
                         }}
                     >
                         Maintain quality, save time, and enhance productivity with our free tools.
