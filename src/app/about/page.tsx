@@ -3,7 +3,7 @@ import AboutSection from "./components/AboutSection";
 
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About | Convert Master",
   description: "We provide free, user-friendly online tools for text and image processing. Explore our suite of tools for resizing images, converting formats, text manipulation, and more.",
 };
 

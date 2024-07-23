@@ -5,16 +5,16 @@ const ThemeProvider = dynamic(()=>import("@/components/theme/ThemeProvider"), {s
 import { Header } from "@/components/navbar/Header";
 import { Footer } from "@/components/footer/Footer";
 import { Analytics } from '@vercel/analytics/react';
-import { Box, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const inter = Inter({ subsets: ["latin"], display: 'swap' });
 
 export const metadata: Metadata = {
-  title: {
-    template: '%s | Convert Master',
-    default: "Convert Master", // a default is required when creating a template
-  },
+  // title: {
+  //   template: '%s | Convert Master',
+  //   default: "Convert Master", // a default is required when creating a template
+  // },
   description: "Convert Master Free online converter Tools. Upload your file and click Convert. Then you can download your converted file.",
   twitter: {
     card: "summary_large_image"
