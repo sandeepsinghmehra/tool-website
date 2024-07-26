@@ -3,9 +3,9 @@
 import React from 'react';
 import { Typography, Container, Box, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
 import { styled } from '@mui/system';
-import { motion } from 'framer-motion';
-import { Circle as CircleIcon } from '@mui/icons-material';
+import { motion, useAnimation } from 'framer-motion';
 import LabelImportantIcon from '@mui/icons-material/LabelImportant';
+import useIntersectionObserver from '../animations/IntersectionObserver';
 
 // Create a styled Box component for the section
 const HowItWorksContainer = styled(motion.section)(({ theme }) => ({
@@ -21,12 +21,25 @@ const ListContainer = styled(motion.ol)(({ theme }) => ({
 }));
 
 const HowItWorksSection = () => {
+  const controls = useAnimation();
+  const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
+
+  React.useEffect(() => {
+    if (isIntersecting) {
+      controls.start('visible');
+    }
+  }, [controls, isIntersecting]);
+
   return (
     <HowItWorksContainer
       id="how-it-works"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      initial="hidden"
+      animate={controls}
+      variants={{
+        hidden: { opacity: 0, y: 100 },
+        visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } },
+      }}
+      ref={ref}
     >
       <Container>
         <Typography
