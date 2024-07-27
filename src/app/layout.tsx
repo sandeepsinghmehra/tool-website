@@ -7,6 +7,8 @@ import { Footer } from "@/components/footer/Footer";
 import { Analytics } from '@vercel/analytics/react';
 import { Box } from "@mui/material";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const inter = Inter({ subsets: ["latin"], display: 'swap' });
 
@@ -85,6 +87,7 @@ export default function RootLayout({
             {children}
             <Analytics />
             <Footer />
+            <ToastContainer />
           </ThemeProvider>
         </Box>
         {/* <!-- Google Tag Manager (noscript) --> */}

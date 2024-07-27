@@ -87,5 +87,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${BASE_URL}about`,
             lastModified: new Date(),
         },
+        {
+            url: `${BASE_URL}password-generator`,
+            lastModified: new Date(),
+        },
+
     ]
 }

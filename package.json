@@ -26,6 +26,7 @@
     "react-dom": "^18",
     "react-leaflet": "^4.2.1",
     "react-multi-carousel": "^2.8.5",
+    "react-toastify": "^10.0.5",
     "sharp": "^0.33.4",
     "uuid": "^10.0.0"
   },

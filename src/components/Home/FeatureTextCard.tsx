@@ -80,7 +80,7 @@ const FeatureTextCardContainer = () => {
                 </motion.div>
             </CustomStyleLink>
         </Grid>
-        <Grid item  xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
             <CustomStyleLink href={"/text-to-audio"}>
                 <motion.div
                     initial={{opacity: 0}}
@@ -95,7 +95,23 @@ const FeatureTextCardContainer = () => {
                     />
                 </motion.div>
             </CustomStyleLink>
-      </Grid>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+            <CustomStyleLink href={"password-generator"}>
+                <motion.div
+                    initial={{opacity: 0}}
+                    whileInView={{opacity: 1}}
+                    transition={{duration: 0.5, delay: 0.5, ease: easeOut}}
+                    viewport={{ once: true}}
+                >
+                    <CustomCardFeatureHome
+                        image={"/assets/password-generator.jpeg"}
+                        title={"Password Maker"}
+                        description={"Create unbreakable passwords with ease!"}
+                    />
+                </motion.div>
+            </CustomStyleLink>
+        </Grid>
     </Grid>
   );
 };

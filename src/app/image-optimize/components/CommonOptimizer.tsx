@@ -376,9 +376,9 @@ const CommonOptimize = (props) => {
                 component="span" 
                 onClick={getConvertedFile} 
                 sx={{ 
-                borderRadius: '35px', 
-                fontSize: {xs: '.7rem', md: '.9rem'},
-                bgcolor: "blue"  
+                    borderRadius: '35px', 
+                    fontSize: {xs: '.7rem', md: '.9rem'},
+                    bgcolor: "blue"  
                 }}
                 disabled={!selectedFile}
             >
