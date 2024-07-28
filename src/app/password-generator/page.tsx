@@ -4,9 +4,9 @@ import PasswordGenerator from "./components/PasswordGenerator";
 
 
 export const metadata: Metadata = {
-  title: "Strong Password Generator | Free Password Maker",
+  title: "Random Password Generator | Password Generator",
   description: " Generate strong, secure passwords effortlessly with our customizable password generator tool. Enhance your online security with ease.",
-  keywords: ['strong password generator', 'secure password', 'password tool', 'create strong password', 'online security', 'password generator tool', 'customizable password']
+  keywords: ['Random Password Generator', 'strong password generator', 'password generator', 'create strong password', 'free password generator', 'customizable password']
 };
 
 
