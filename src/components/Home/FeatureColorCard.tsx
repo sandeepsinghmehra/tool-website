@@ -1,9 +1,9 @@
 "use client"
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { Grid, Link } from '@mui/material';
 import { styled } from '@mui/system';
-import { easeOut, motion } from 'framer-motion';
+import { easeOut, motion, useScroll, useTransform } from 'framer-motion';
 import CustomCardFeatureHome from '../Cards/Card';
 
 const dataList = [
@@ -32,40 +32,44 @@ const CustomStyleLink = styled(Link)(({ theme })=> ({
 }))
 
 const FeatureColorCardContainer = () => {
-
-  return (
-    <Grid 
-        container 
-        spacing={2}
-        
-    >
-        { dataList.map((item, index) =>
-            <Grid 
-                item 
-                xs={12} 
-                sm={6} 
-                md={4} 
-                key={index}
-            >   
-                <CustomStyleLink href={item.href}>
-                    <motion.div
-                        initial={{opacity: 0}}
-                        whileInView={{opacity: 1}}
-                        transition={{duration: 0.5, delay: 0.5, ease: easeOut}}
-                        viewport={{ once: true}}
-                        style={{ height: '100%' }}
-                    >
-                        <CustomCardFeatureHome
-                            image={item.image}
-                            title={item.title}
-                            description={item.description}
-                        />
-                    </motion.div>
-                </CustomStyleLink>
+    const colorRef = useRef<HTMLDivElement>(null);
+    const colorScroll = useScroll({
+        target: colorRef,
+        offset: ["0 1", "1 1"],
+    });
+    const scaleColorProgress = useTransform(colorScroll.scrollYProgress, [0, 1], [0.8, 1]);
+    const opacityColorProgress = useTransform(colorScroll.scrollYProgress, [0, 1], [0.9, 1]);
+    return (
+        <motion.div
+            ref={colorRef}
+            style={{
+                scale: scaleColorProgress,
+                opacity: opacityColorProgress,
+            }}
+        >
+            <Grid container spacing={2}>
+                { dataList.map((item, index) =>
+                    <Grid item xs={12} sm={6} md={4} key={index}>   
+                        <CustomStyleLink href={item.href}>
+                            <motion.div
+                                initial={{opacity: 0}}
+                                whileInView={{opacity: 1}}
+                                transition={{duration: 0.5, delay: 0.5, ease: easeOut}}
+                                viewport={{ once: true}}
+                                style={{ height: '100%' }}
+                            >
+                                <CustomCardFeatureHome
+                                    image={item.image}
+                                    title={item.title}
+                                    description={item.description}
+                                />
+                            </motion.div>
+                        </CustomStyleLink>
+                    </Grid>
+                )}
             </Grid>
-        )}
-    </Grid>
-  );
+        </motion.div>
+    );
 };
 
 

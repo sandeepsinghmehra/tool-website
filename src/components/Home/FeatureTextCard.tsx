@@ -1,10 +1,10 @@
 "use client"
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { Grid, Link } from '@mui/material';
 import { styled } from '@mui/system';
 import CustomCardFeatureHome from '../Cards/Card';
-import { easeOut, motion } from 'framer-motion';
+import { easeOut, motion, useScroll, useTransform } from 'framer-motion';
 
 const dataList = [
     {
@@ -55,30 +55,46 @@ const CustomStyleLink = styled(Link)(({ theme })=> ({
 }))
 
 const FeatureTextCardContainer = () => {
+    const textRef = useRef<HTMLDivElement>(null);
+    const colorRef = useRef<HTMLDivElement>(null);
+    const textScroll = useScroll({
+      target: textRef,
+      offset: ["0 1", "1.8 1"],
+    });
 
-  return (
-    <Grid container spacing={3}>
-        {dataList.map((item, index) =>
-            <Grid item xs={12} sm={6} md={4} key={index}>
-                <CustomStyleLink href={item.href}>
-                    <motion.div
-                        initial={{opacity: 0}}
-                        whileInView={{opacity: 1}}
-                        transition={{duration: 0.5, delay: 0.5, ease: easeOut}}
-                        viewport={{ once: true}}
-                        style={{ height: '100%' }}
-                    >
-                        <CustomCardFeatureHome
-                            image={item.image}
-                            title={item.title}
-                            description={item.description}
-                        />
-                    </motion.div>
-                </CustomStyleLink>
+    const scaleTextProgress = useTransform(textScroll.scrollYProgress, [0, 1], [0.8, 1]);
+    const opacityTextProgress = useTransform(textScroll.scrollYProgress, [0, 1], [0.6, 1]);
+    return (
+        <motion.div
+            ref={textRef}
+            style={{
+            scale: scaleTextProgress,
+            opacity: opacityTextProgress,
+            }}
+        >
+            <Grid container spacing={3}>
+                {dataList.map((item, index) =>
+                    <Grid item xs={12} sm={6} md={4} key={index}>
+                        <CustomStyleLink href={item.href}>
+                            <motion.div
+                                initial={{opacity: 0}}
+                                whileInView={{opacity: 1}}
+                                transition={{duration: 0.5, delay: 0.5, ease: easeOut}}
+                                viewport={{ once: true}}
+                                style={{ height: '100%' }}
+                            >
+                                <CustomCardFeatureHome
+                                    image={item.image}
+                                    title={item.title}
+                                    description={item.description}
+                                />
+                            </motion.div>
+                        </CustomStyleLink>
+                    </Grid>
+                )}
             </Grid>
-        )}
-    </Grid>
-  );
+        </motion.div>
+    );
 };
 
 

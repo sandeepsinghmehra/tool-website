@@ -1,9 +1,9 @@
 "use client"
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { Box, Typography, Button, Container } from '@mui/material';
 import { styled } from '@mui/system';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 
 const HeroContainer = styled(motion.div)(({ theme }) => ({
@@ -37,11 +37,24 @@ const HeroButton = styled(motion.button)(({ theme }) => ({
 }));
 
 const HeroSection = () => {
+    const ref = useRef<HTMLDivElement>(null);
+    const imageScroll = useScroll({
+        target: ref,
+        offset: ["0 1", "1.5 1"],
+    });
+
+    const scaleProgress = useTransform(imageScroll.scrollYProgress, [0, 1], [0.9, 1]);
+    const opacityProgress = useTransform(imageScroll.scrollYProgress, [0, 1], [0.6, 1]);
     return (
         <HeroContainer
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
+            // initial={{ opacity: 0 }}
+            // animate={{ opacity: 1 }}
+            // transition={{ duration: 1 }}
+            ref={ref}
+            style={{
+                scale: scaleProgress,
+                opacity: opacityProgress,
+            }}
         >
             <Image
                 src="/assets/cover_image.jpeg" // Add your background image here

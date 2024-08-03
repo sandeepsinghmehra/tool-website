@@ -1,10 +1,10 @@
 "use client"
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { Grid, Link } from '@mui/material';
 import { styled } from '@mui/system';
 import CustomCardFeatureHome from '../Cards/Card';
-import { easeOut, motion } from 'framer-motion';
+import { easeOut, motion, useScroll, useTransform } from 'framer-motion';
 
 const dataList = [
   {
@@ -67,30 +67,45 @@ const CustomStyleLink = styled(Link)(({ theme })=> ({
 }))
 
 const FeatureImageCardContainer = () => {
+  const imageRef = useRef<HTMLDivElement>(null);
+  const imageScroll = useScroll({
+    target: imageRef,
+    offset: ["0 1", "1.8 1"],
+  });
 
+  const scaleImageProgress = useTransform(imageScroll.scrollYProgress, [0, 1], [0.8, 1]);
+  const opacityImageProgress = useTransform(imageScroll.scrollYProgress, [0, 1], [0.6, 1]);
   return (
-    <Grid container spacing={3}>
-      {dataList.map((item, index) =>
-        <Grid item xs={12} sm={6} md={4} key={index}>
-          <CustomStyleLink href={item.href}>
-            <motion.div
-              initial={{opacity: 0}}
-              whileInView={{opacity: 1}}
-              transition={{duration: 0.5, delay: 0.5, ease: easeOut}}
-              viewport={{ once: true}}
-              style={{ height: '100%' }}
-            >
-              <CustomCardFeatureHome
-                image={item.image}
-                title={item.title}
-                description={item.description}
-              />
+    <motion.div 
+      ref={imageRef}
+      style={{
+        scale: scaleImageProgress,
+        opacity: opacityImageProgress,
+      }}
+    >
+      <Grid container spacing={3}>
+        {dataList.map((item, index) =>
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <CustomStyleLink href={item.href}>
+              <motion.div
+                initial={{opacity: 0}}
+                whileInView={{opacity: 1}}
+                transition={{duration: 0.5, delay: 0.5, ease: easeOut}}
+                viewport={{ once: true}}
+                style={{ height: '100%' }}
+              >
+                <CustomCardFeatureHome
+                  image={item.image}
+                  title={item.title}
+                  description={item.description}
+                />
 
-            </motion.div>
-          </CustomStyleLink>
-        </Grid>
-      )}
-    </Grid>
+              </motion.div>
+            </CustomStyleLink>
+          </Grid>
+        )}
+      </Grid>
+    </motion.div>
   );
 };
 
