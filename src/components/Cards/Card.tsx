@@ -31,11 +31,19 @@ const CustomCardFeatureHome = ({ image, title, description }) => {
         initial="initial"
         animate="animate"
         whileHover="whileHover"
-        sx={{ display: 'flex', 
-            alignItems: 'center', 
-            maxWidth: 600, margin: 'auto', my: 0, p: 1,
-            backgroundColor: '#50B498', 
-            boxShadow: 3, borderRadius: 2, border: '1px dotted red' }}
+        sx={{ 
+          maxWidth: 600, margin: 'auto', my: 0,
+          display: 'flex', 
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          height: '100%',
+          backgroundColor: '#50B498', 
+          boxShadow: 3, 
+          borderRadius: 2, 
+          border: '1px dotted red', 
+          p: 1,
+          boxSizing: 'border-box' 
+        }}
     >
         <motion.div variants={mediaVariants} initial="initial" animate="animate">
             <CardMedia

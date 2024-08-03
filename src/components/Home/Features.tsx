@@ -1,11 +1,12 @@
 "use client"
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { Box, Typography, Container, List, ListItem, ListItemText } from '@mui/material';
 import { styled } from '@mui/system';
-import { easeOut, motion } from 'framer-motion';
+import { easeOut, motion, useScroll, useTransform } from 'framer-motion';
 import FeatureImageCardContainer from './FeatureImageCard';
 import FeatureTextCardContainer from './FeatureTextCard';
+import FeatureColorCardContainer from './FeatureColorCard';
 
 
 // Create a styled motion div for the section container
@@ -20,6 +21,27 @@ const FeatureBox = styled(Box)(({ theme }) => ({
 }));
 
 const FeaturesSection = () => {
+  const imageRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const colorRef = useRef<HTMLDivElement>(null);
+  const imageScroll = useScroll({
+    target: imageRef,
+    offset: ["0 1", "1.8 1"],
+  });
+  const textScroll = useScroll({
+    target: textRef,
+    offset: ["0 1", "1.8 1"],
+  });
+  const colorScroll = useScroll({
+    target: colorRef,
+    offset: ["0 1", "1.6 1"],
+  });
+  const scaleImageProgress = useTransform(imageScroll.scrollYProgress, [0, 1], [0.7, 1]);
+  const opacityImageProgress = useTransform(imageScroll.scrollYProgress, [0, 1], [0.6, 1]);
+  const scaleTextProgress = useTransform(textScroll.scrollYProgress, [0, 1], [0.7, 1]);
+  const opacityTextProgress = useTransform(textScroll.scrollYProgress, [0, 1], [0.6, 1]);
+  const scaleColorProgress = useTransform(colorScroll.scrollYProgress, [0, 1], [0.7, 1]);
+  const opacityColorProgress = useTransform(colorScroll.scrollYProgress, [0, 1], [0.6, 1]);
   return (
     <SectionContainer
       initial={{ opacity: 0 }}
@@ -38,10 +60,15 @@ const FeaturesSection = () => {
           </Typography>
         </motion.div>
         <motion.div
-          initial={{opacity: 0}}
-          whileInView={{opacity: 1}}
-          transition={{duration: 0.5, delay: 0.4, ease: easeOut, type: 'spring', stiffness: 80}}
-          viewport={{ once: true}}
+          // initial={{opacity: 0}}
+          // whileInView={{opacity: 1}}
+          // transition={{duration: 0.5, delay: 0.4, ease: easeOut, type: 'spring', stiffness: 80}}
+          // viewport={{ once: true}}
+          ref={imageRef}
+          style={{
+            scale: scaleImageProgress,
+            opacity: opacityImageProgress,
+          }}
         >
           <FeatureBox>
             <Typography variant="h5" component="h3">
@@ -69,10 +96,15 @@ const FeaturesSection = () => {
           </FeatureBox>
         </motion.div>
         <motion.div
-          initial={{opacity: 0}}
-          whileInView={{opacity: 1}}
-          transition={{duration: 0.5, delay: 0.4, ease: easeOut, type: 'spring', stiffness: 80}}
-          viewport={{ once: true}}
+          // initial={{opacity: 0}}
+          // whileInView={{opacity: 1}}
+          // transition={{duration: 0.5, delay: 0.4, ease: easeOut, type: 'spring', stiffness: 80}}
+          // viewport={{ once: true}}
+          ref={textRef}
+          style={{
+            scale: scaleTextProgress,
+            opacity: opacityTextProgress,
+          }}
         >
           <FeatureBox>
             <Typography variant="h5" component="h3">
@@ -89,6 +121,25 @@ const FeaturesSection = () => {
             </Typography>
             <br />
             <FeatureTextCardContainer />
+          </FeatureBox>
+        </motion.div>
+        <motion.div
+          // initial={{opacity: 0}}
+          // whileInView={{opacity: 1}}
+          // transition={{duration: 0.5, delay: 0.4, ease: easeOut, type: 'spring', stiffness: 80}}
+          // viewport={{ once: true}}
+          ref={colorRef}
+          style={{
+            scale: scaleColorProgress,
+            opacity: opacityColorProgress,
+          }}
+        >
+          <FeatureBox>
+            <Typography variant="h5" component="h3">
+              Color Tools
+            </Typography>
+            <br />
+            <FeatureColorCardContainer />
           </FeatureBox>
         </motion.div>
       </Container>
