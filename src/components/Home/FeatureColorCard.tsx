@@ -13,12 +13,12 @@ const dataList = [
         title: "Color Picker",
         description: "Choose your perfect color effortlessly!",
     },
-    {
-        href: "image-color-picker",
-        image: "/assets/image-color-picker.jpeg",
-        title: "Image Color Picker",
-        description: "Extract and match colors from images!",
-    },
+    // {
+    //     href: "image-color-picker",
+    //     image: "/assets/image-color-picker.jpeg",
+    //     title: "Image Color Picker",
+    //     description: "Extract and match colors from images!",
+    // },
 ];
 
 const CustomStyleLink = styled(Link)(({ theme })=> ({
