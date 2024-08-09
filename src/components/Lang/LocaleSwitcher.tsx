@@ -10,6 +10,10 @@ export default function LocaleSwitcher() {
       defaultValue={locale}
       items={[
         {
+          value: 'hi',
+          label: t('hi')
+        },
+        {
           value: 'en',
           label: t('en')
         },

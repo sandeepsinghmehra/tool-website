@@ -4,15 +4,20 @@ import { Box, Typography, useTheme } from '@mui/material';
 import React from 'react';
 import Image from 'next/image';
 
+// Define the props type
+interface AboutSectionProps {
+    pageTitle: string;
+    pageContent: string;
+}
 
-const AboutSection: React.FC = () => {
+const AboutSection: React.FC<AboutSectionProps> = ({ pageTitle, pageContent }) => {
 
     const theme:any = useTheme();
     
     return (
         <Box component={"section"} alignContent={"center"}>
             <Typography component={"h1"} variant="h1" align='center' pt={2} sx={{fontSize: '2.5rem'}}>
-                About
+               {pageTitle} {/* About */}
             </Typography>
 
             <Box 
@@ -39,7 +44,7 @@ const AboutSection: React.FC = () => {
                         py: 4, textAlign:"justify", letterSpacing: '1px', maxWidth: {md: '600px'}, m: 'auto', lineHeight: '30px', fontSize: '22px'
                     }}
                 >
-                   Our mission is to offer free, efficient online tools for all your text and image processing needs. At Convert-Master.online, powered by India, we provide a user-friendly experience with a suite of tools designed for simplicity and effectiveness. Whether you need to resize or convert images, bolden text, repeat text, or count words, our platform ensures that you get the job done quickly and effortlessly. Explore our tools to streamline your digital tasks and enhance your productivity.
+                   {pageContent}
                 </Typography>
                 
             </Box>

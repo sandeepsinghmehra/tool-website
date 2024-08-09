@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AboutSection from "./components/AboutSection";
+import { useTranslations } from "next-intl";
 
 
 export const metadata: Metadata = {
@@ -9,10 +10,11 @@ export const metadata: Metadata = {
 
 
 function About() {
-  
+  const t = useTranslations('AboutPage');
+
   return (
     <main>
-      <AboutSection />
+      <AboutSection pageTitle={t('title')} pageContent={t('content')} />
     </main>
   );
 }

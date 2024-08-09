@@ -95,13 +95,9 @@ export function  Header(){
                 >
                   <Menu />
                 </IconButton>
-              </Box>
-              <Box>
-                <IconButton 
-                  sx={{ color: theme.palette.mode === 'light' ? "#000":"#fff" }}
-                  onClick={handleMobileMenu}
-                >
-                <LocaleSwitcher />
+               
+                <IconButton>
+                  <LocaleSwitcher />
                 </IconButton>
               </Box>
 
@@ -178,6 +174,9 @@ const AllMenus = (data) => {
                   title="theme-button-icons"
                 >
                   { theme.palette.mode === 'light' ?<DarkModeRounded /> : <LightModeOutlined /> }
+                </IconButton>
+                <IconButton>
+                  <LocaleSwitcher />
                 </IconButton>
                 {/* <IconButton
                     component="a"
