@@ -2,6 +2,8 @@
 import React, { useState, createContext, useMemo, useContext } from 'react';
 import { ThemeProvider as MuiThemeProvider, CssBaseline, Box } from '@mui/material';
 import { lightTheme, darkTheme } from './theme';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ThemeToggleContext:any = createContext({});
 
@@ -20,6 +22,7 @@ const ThemeProvider = ({ children }) => {
         <ThemeToggleContext.Provider value={toggleTheme}>
             <MuiThemeProvider theme={theme} >
                 <CssBaseline />
+                <ToastContainer />
                 <Box sx={{ bgcolor: theme.palette.mode === 'light' ? '#fff': "#000", px: {xs: 0, md: 2}}}>
                     {children}
                 </Box>

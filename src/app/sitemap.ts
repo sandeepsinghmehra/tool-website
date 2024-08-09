@@ -60,6 +60,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
             lastModified: new Date(),
         },
         {
+            url: `${BASE_URL}text-repeater`,
+            lastModified: new Date(),
+        },
+        {
             url: `${BASE_URL}text-to-audio`,
             lastModified: new Date(),
         },
@@ -75,5 +79,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${BASE_URL}term-and-conditions`,
             lastModified: new Date(),
         },
+        {
+            url: `${BASE_URL}contact`,
+            lastModified: new Date(),
+        },
+        {
+            url: `${BASE_URL}about`,
+            lastModified: new Date(),
+        },
+        {
+            url: `${BASE_URL}password-generator`,
+            lastModified: new Date(),
+        },
+        {
+            url: `${BASE_URL}color-picker`,
+            lastModified: new Date(),
+        },
+
     ]
 }
