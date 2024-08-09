@@ -1,0 +1,14 @@
+{
+    "AppLayout": {
+        "home": "Home Hi"
+    },
+    "HomePage": {
+        "title": "Home Hindi"
+    }, 
+    "LocaleSwitcher": {
+        "de": "Deutsch",
+        "en": "English",
+        "hi": "Hindi",
+        "label": "Language"
+    }
+}

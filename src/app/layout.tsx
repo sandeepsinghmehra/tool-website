@@ -7,6 +7,8 @@ import { Footer } from "@/components/footer/Footer";
 import { Analytics } from '@vercel/analytics/react';
 import { Box, useTheme } from "@mui/material";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import {NextIntlClientProvider} from 'next-intl';
+import {getLocale, getMessages} from 'next-intl/server';
 
 const inter = Inter({ subsets: ["latin"], display: 'swap' });
 
@@ -65,28 +67,35 @@ export const metadata: Metadata = {
   
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
+  const locale = await getLocale();
+
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
+  console.log("messages: ", messages)
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         <meta name="google-site-verification" content="gcYNBWqBdyY8i1Y1LtL39rmYsmdMMRokCwsPppsJen4" />
         <GoogleAnalytics />
       </head>
       
       <body className={inter.className}>
-        <Box sx={{ width: {xs: "100%", md:"80%"}, margin: 'auto'}}>
-          <ThemeProvider>
-            <Header />
-            {children}
-            <Analytics />
-            <Footer />
-          </ThemeProvider>
-        </Box>
+        <NextIntlClientProvider messages={messages}>
+          <Box sx={{ width: {xs: "100%", md:"80%"}, margin: 'auto'}}>
+            <ThemeProvider>
+              <Header />
+              {children}
+              <Analytics />
+              <Footer />
+            </ThemeProvider>
+          </Box>
+        </NextIntlClientProvider>
         {/* <!-- Google Tag Manager (noscript) --> */}
         <noscript>
           <iframe 

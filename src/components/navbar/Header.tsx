@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import Link from 'next/link';
 import Image from "next/image";
 import { useThemeToggle } from "@/components/theme/ThemeProvider";
+import LocaleSwitcher from "../Lang/LocaleSwitcher";
 
 
 const CustomLink = styled(Link)(({ theme }) => ({
@@ -33,16 +34,23 @@ export function  Header(){
         label: "Home",
         active: pathName === `/`
       },
+      {
+        href: '/about',
+        label: "Our services",
+        active: pathName === `/services`
+      },
+      {
+        href: '/',
+        label: "Our services",
+        active: pathName === `/services`
+      },
       // {
       //   href: "image-convert/jpeg-to-webp",
       //   label: "Image Convert",
       //   active: pathName === "/image-convert/jpeg-to-webp"
       // },
-      // {
-      //   href: '/services',
-      //   label: "Our services",
-      //   active: pathName === `/services`
-      // },
+      
+      
   ]
   const handleMobileMenu:any = () => {
     setIsMobileMenuOpen(true);
@@ -86,6 +94,14 @@ export function  Header(){
                   onClick={handleMobileMenu}
                 >
                   <Menu />
+                </IconButton>
+              </Box>
+              <Box>
+                <IconButton 
+                  sx={{ color: theme.palette.mode === 'light' ? "#000":"#fff" }}
+                  onClick={handleMobileMenu}
+                >
+                <LocaleSwitcher />
                 </IconButton>
               </Box>
 

@@ -1,0 +1,13 @@
+{
+    "AppLayout": {
+        "home": "Start"
+    },
+    "HomePage": {
+        "title": "Start"
+    },
+    "LocaleSwitcher": {
+        "de": "Deutsch",
+        "en": "English",
+        "label": "Sprache"
+    }
+}
