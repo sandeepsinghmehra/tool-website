@@ -1,10 +1,18 @@
 "use client"
 
-import { Box, TextField, Typography, Paper, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Button, IconButton, Grid, useTheme } from '@mui/material';
-import React, { useState, ChangeEvent, useEffect } from 'react';
+import { Box, TextField, Typography,  Button, Grid, useTheme } from '@mui/material';
+import React, { useState, ChangeEvent } from 'react';
 
+// Define the props type
+interface ContactSectionProps {
+    pageTitle: string; 
+    pageSubject: string; 
+    pageEmail: string; 
+    pageMessage: string;
+    pageSubmit: string;
+}
 
-const ContactSection: React.FC = () => {
+const ContactSection: React.FC<ContactSectionProps> = ({ pageTitle, pageSubject, pageEmail, pageMessage, pageSubmit }) => {
 
     const theme:any = useTheme();
     const [subject, setSubject] = useState("");
@@ -30,7 +38,7 @@ const ContactSection: React.FC = () => {
     return (
         <Box component={"section"} alignContent={"center"}>
             <Typography component={"h1"} variant="h1" align='center' pt={2} sx={{fontSize: '2.5rem'}}>
-                Contact
+                {pageTitle}
             </Typography>
 
             <Box 
@@ -50,7 +58,7 @@ const ContactSection: React.FC = () => {
             <Grid item xs={6} md={6}>
                 <Box>
                     <TextField
-                        label="Subject"
+                        label={pageSubject}
                         variant="outlined"
                         fullWidth
                         margin="normal"
@@ -85,7 +93,7 @@ const ContactSection: React.FC = () => {
             <Grid item xs={6} md={6}>
                 <Box>
                     <TextField
-                        label="Email"
+                        label={pageEmail}
                         variant="outlined"
                         fullWidth
                         margin="normal"
@@ -120,7 +128,7 @@ const ContactSection: React.FC = () => {
             <Grid item xs={6} md={6}>
                 <Box>
                     <TextField
-                        label="Message"
+                        label={pageMessage}
                         multiline
                         minRows={4}
                         maxRows={6}
@@ -160,7 +168,7 @@ const ContactSection: React.FC = () => {
                     // onClick={handleConversion}
                     sx={{ marginY: 3,  bgcolor: "blue" }}
                 >
-                    Submit
+                    {pageSubmit}
                 </Button>
         </Grid>
        

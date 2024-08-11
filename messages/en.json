@@ -16,6 +16,15 @@
         "content": "Our mission is to offer free, efficient online tools for all your text, color, password combination generator and image processing needs. At Convert-Master.online, powered by India, we provide a user-friendly experience with a suite of tools designed for simplicity and effectiveness. Whether you need to resize or convert images, bolden text, repeat text, count words, or password maker, our platform ensures that you get the job done quickly and effortlessly. Explore our tools to streamline your digital tasks and enhance your productivity.",
         "metaTitle": "About Us | Convert Master",
         "metaDescription": "We provide free, user-friendly online tools for text, color, password generator and image processing. Explore our suite of tools for resizing images, converting formats, text manipulation, password maker, text repeater and more."
-
+    },
+    "ContactPage": {
+        "pageTitle": "Contact Us",
+        "Subject": "Subject",
+        "Email": "Email",
+        "Message": "Message",
+        "Submit": "Submit",
+        "metaTitle": "Contact Us | Convert Master",
+        "metaDescription": "Get in touch with us through our Contact page. Whether you have questions, feedback, or need support, our team is here to assist you. Reach out to us today and we'll get back to you as soon as possible.",
+        "metaKeywords": "contact, get in touch, customer support, feedback, questions, reach out, support team, customer service, help"
     }
 }

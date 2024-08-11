@@ -1,4 +1,4 @@
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 import AboutSection from "./components/AboutSection";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
