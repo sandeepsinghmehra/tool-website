@@ -43,6 +43,12 @@ const dataList = [
         title: "Password Maker",
         description: "Create unbreakable passwords with ease!",
     },
+    {
+        href: "text-reverser",
+        image: "/assets/text-reverser.webp",
+        title: "Text Reverser Tool",
+        description: "Reverse your text instantly with our easy tool!",
+    },
 ];
 const CustomStyleLink = styled(Link)(({ theme })=> ({
   color: 'white',
