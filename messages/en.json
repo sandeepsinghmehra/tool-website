@@ -9,7 +9,18 @@
         "label": "Language"
     },
     "HomePage": {
-        "title": "Home"
+        "title": "Home",
+        "heroHeading": "",
+        "heroSubHeading": "",
+        "heroButtonText": "",
+        
+        "howItWorksTitle": "",
+        "howItWorksContent": "",
+        "howItWorksSubContent": "",
+        
+        "whyChooseUsTitle": "",
+        "whyChooseUsContent": ""
+
     }, 
     "AboutPage": {
         "title": "About Us",

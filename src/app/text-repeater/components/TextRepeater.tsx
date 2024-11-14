@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, TextField, Typography, Paper, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Button, IconButton, Grid, useTheme } from '@mui/material';
+import { Box, TextField, Typography, Paper, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Button, IconButton, Grid, useTheme, Tooltip, Checkbox } from '@mui/material';
 import { Delete as DeleteIcon, FileCopy as FileCopyIcon, TaskAltRounded as TaskAltRoundedIcon } from '@mui/icons-material';
 import React, { useState, ChangeEvent, useEffect } from 'react';
 
@@ -12,11 +12,21 @@ const TextRepeater: React.FC = () => {
     const [count, setCount] = useState<number>(5);
     const [repeatedText, setRepeatedText] = useState<string>('');
     const [delimiter, setDelimiter] = useState<string>(',');
+    const [isNewLine, setIsNewLine] = useState(false);
 
-    
+    const handleChangeNewLine = (event) => {
+        setIsNewLine(event.target.checked);
+    };
+
+    const countWords = (text) => {
+        return text.trim().split(/\s+/).length;
+    };
+
     const handleRepeat = () => {
         if (count > 0) {
-            setRepeatedText(Array(count).fill(text).join(delimiter));
+            const separator = isNewLine ? delimiter + "\n" : delimiter;
+            setRepeatedText(Array(count).fill(text).join(separator));
+            // setRepeatedText(Array(count).fill(text).join(delimiter));
         } else {
             setRepeatedText('Count should be a positive number.');
         }
@@ -59,58 +69,8 @@ const TextRepeater: React.FC = () => {
                 Text Repeater
             </Typography>
 
-            <Box 
-                sx={{ 
-                    display: 'flex',  
-                    alignItems: 'center',
-                    justifyContent: 'center', 
-                    margin: 'auto', 
-                    mt: 4,
-                    mb: 2, 
-                    textAlign: 'center' 
-                }}>
-                <TextField
-                    label="Repeat count"
-                    variant="outlined"
-                    type="number"
-                    fullWidth
-                    margin="normal"
-                    value={count}
-                    onChange={handleCountChange}
-                    sx={{ 
-                        maxWidth: 150, 
-                        m: 1,
-                        color: theme.palette.mode === 'light' ? "#000": "#fff",
-                        '& label.Mui-focused': {
-                            color: theme.palette.mode === 'light' ? '#000' : '#fff',
-                        },
-                    }}
-                    InputLabelProps={{
-                        style: { color: theme.palette.mode === 'light' ? '#000' : '#fff' },
-                    }}
-                />
-                 <TextField
-                    label="Delimiter"
-                    variant="outlined"
-                    fullWidth
-                    margin="normal"
-                    value={delimiter}
-                    onChange={handleDelimiterChange}
-                    sx={{ 
-                        maxWidth: 150, 
-                        m: 1,
-                        color: theme.palette.mode === 'light' ? "#000": "#fff",
-                        '& label.Mui-focused': {
-                            color: theme.palette.mode === 'light' ? '#000' : '#fff',
-                        },
-                    }}
-                    InputLabelProps={{
-                        style: { color: theme.palette.mode === 'light' ? '#000' : '#fff' },
-                    }}
-                />
-                
-            </Box>
-            <Grid container columns={{ xs: 6, md: 12 }} sx={{px: {xs: 2, md: 0}}} spacing={2}>
+            
+            <Grid container columns={{ xs: 6, md: 12 }} sx={{px: {xs: 2, md: 0},  mt: 4,}} spacing={2}>
                 <Grid item xs={6} md={6}>
                     <Box>
                         <TextField
@@ -133,9 +93,106 @@ const TextRepeater: React.FC = () => {
                                 style: { color: theme.palette.mode === 'light' ? '#000' : '#fff' },
                             }}
                         />
-                        <IconButton onClick={handleDeleteText}>
-                            <DeleteIcon sx={{color: 'red'}} />
-                        </IconButton>
+                        <Box display="flex" flexDirection="row" alignItems={'center'}>
+                           
+                       
+                            <Box 
+                                display="flex" 
+                                flexDirection="row" 
+                                alignItems="center" 
+                                sx={{
+                                    bgcolor: "#f5f5f5", 
+                                    borderRadius: 1, 
+                                    width: "fit-content",
+                                    cursor: 'pointer',
+                                }} 
+                                onClick={handleDeleteText} 
+                            >
+                                <Tooltip title="Clear Input">
+                                    <IconButton color="primary" aria-label="delete">
+                                        <DeleteIcon sx={{color: 'red'}} />
+                                    </IconButton>
+                                </Tooltip>
+                                <Typography variant="body2" sx={{color: 'red', paddingRight: 1,}}>Clear Input</Typography>
+                            </Box>
+                            <Box display="flex" flexDirection="row" mx={1}>
+                                <Typography variant="body2" mx={1}>Words: {countWords(text)}</Typography> 
+                                <Typography variant="body2" mx={1}>Characters: {text.length}</Typography> 
+                            </Box>
+                        </Box>
+
+                        <Box>
+                            <Typography variant="body2" sx={{mt: 2}}>Settings</Typography>
+                            <Box 
+                                sx={{ 
+                                    display: 'flex',
+                                    flexDirection: 'column',   
+                                    textAlign: 'center', 
+                                }}
+                            >
+                                <Box
+                                    display="flex" 
+                                    flexDirection="row" 
+                                    alignItems="center" 
+                                    sx={{
+                                        width: "fit-content",
+                                    }} 
+                                >
+                                    <Checkbox
+                                        checked={isNewLine}
+                                        onChange={handleChangeNewLine}
+                                        color="success"
+                                        inputProps={{ 'aria-label': 'basic checkbox' }}
+                                    />
+                                    <Typography variant="body2" sx={{paddingRight: 1,}}>Add New Line</Typography>
+                                </Box> 
+
+                                <TextField
+                                    label="Delimiter"
+                                    variant="outlined"
+                                    fullWidth
+                                    margin="normal"
+                                    value={delimiter}
+                                    size='small'
+                                    onChange={handleDelimiterChange}
+                                    sx={{ 
+                                        maxWidth: 140, 
+                                        // m: 1,
+                                        color: theme.palette.mode === 'light' ? "#000": "#fff",
+                                        '& label.Mui-focused': {
+                                            color: theme.palette.mode === 'light' ? '#000' : '#fff',
+                                        },
+                                    }}
+                                    InputLabelProps={{
+                                        style: { color: theme.palette.mode === 'light' ? '#000' : '#fff' },
+                                    }}
+                                />
+
+                                <TextField
+                                    label="Repetitions"
+                                    variant="outlined"
+                                    type="number"
+                                    fullWidth
+                                    margin="normal"
+                                    value={count}
+                                    onChange={handleCountChange}
+                                    size='small'
+                                    sx={{ 
+                                        maxWidth: 140, 
+                                        // m: 1,
+                                        color: theme.palette.mode === 'light' ? "#000": "#fff",
+                                        '& label.Mui-focused': {
+                                            color: theme.palette.mode === 'light' ? '#000' : '#fff',
+                                        },
+                                    }}
+                                    InputLabelProps={{
+                                        style: { color: theme.palette.mode === 'light' ? '#000' : '#fff' },
+                                    }}
+                                />
+                                
+                            </Box>
+                        </Box>
+                        
                     </Box>
                     <Button
                         variant="contained"
@@ -171,9 +228,28 @@ const TextRepeater: React.FC = () => {
                                 style: { color: theme.palette.mode === 'light' ? '#000' : '#fff' },
                             }}
                         />
-                        <IconButton onClick={handleCopyToClipboard}>
+                        {/* <IconButton onClick={handleCopyToClipboard}>
                             <FileCopyIcon sx={{color: 'blue'}} />
-                        </IconButton>
+                        </IconButton> */}
+                        <Box 
+                            display="flex" 
+                            flexDirection="row" 
+                            alignItems="center" 
+                            sx={{
+                                bgcolor: "#f5f5f5", 
+                                borderRadius: 1, 
+                                width: "fit-content",
+                                cursor: 'pointer',
+                            }} 
+                            onClick={handleCopyToClipboard} 
+                        >
+                            <Tooltip title="Copy Text">
+                                <IconButton color="primary" aria-label="copy">
+                                    <FileCopyIcon sx={{color: 'blue'}} />
+                                </IconButton>
+                            </Tooltip>
+                            <Typography variant="body2" sx={{color: 'blue', paddingRight: 1,}}>Copy Text</Typography>
+                        </Box>
                     </Box>
                 </Grid>
             </Grid>
