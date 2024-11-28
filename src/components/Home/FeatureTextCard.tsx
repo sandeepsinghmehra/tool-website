@@ -49,6 +49,13 @@ const dataList = [
         title: "Text Reverser Tool",
         description: "Reverse your text instantly with our easy tool!",
     },
+    {
+        href: "sudoku-puzzle",
+        image: "/assets/sudoku-puzzle-generator.webp",
+        title: "Sudoku Puzzle Generator Tool",
+        description: "Generate unique and challenging Sudoku puzzles instantly.",
+    },
+
 ];
 const CustomStyleLink = styled(Link)(({ theme })=> ({
   color: 'white',

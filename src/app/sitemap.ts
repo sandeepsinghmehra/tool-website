@@ -99,6 +99,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${BASE_URL}color-picker`,
             lastModified: new Date(),
         },
+        {
+            url: `${BASE_URL}sudoku-puzzle`,
+            lastModified: new Date(),
+        },
 
     ]
 }
