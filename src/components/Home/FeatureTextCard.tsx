@@ -55,6 +55,12 @@ const dataList = [
         title: "Sudoku Puzzle Generator Tool",
         description: "Generate unique and challenging Sudoku puzzles instantly.",
     },
+    {
+        href: "text-to-font-image",
+        image: "/assets/text-to-font-image.webp",
+        title: "Cool Text Graphics Generator",
+        description: "Create stylish text graphics easily with cool designs.", 
+    }
 
 ];
 const CustomStyleLink = styled(Link)(({ theme })=> ({

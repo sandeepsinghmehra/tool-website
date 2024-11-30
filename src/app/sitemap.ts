@@ -103,6 +103,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${BASE_URL}sudoku-puzzle`,
             lastModified: new Date(),
         },
+        {
+            url: `${BASE_URL}text-to-font-image`,
+            lastModified: new Date(),
+        }
 
     ]
 }
