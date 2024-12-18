@@ -9,6 +9,7 @@ import { Box } from "@mui/material";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import {NextIntlClientProvider} from 'next-intl';
 import {getLocale, getMessages} from 'next-intl/server';
+import Script from "next/script";
 
 
 const inter = Inter({ subsets: ["latin"], display: 'swap' });
@@ -85,6 +86,32 @@ export default async function RootLayout({
         <meta name="google-site-verification" content="gcYNBWqBdyY8i1Y1LtL39rmYsmdMMRokCwsPppsJen4" />
         <GoogleAnalytics />
         <meta name="ded46ff83865378e6701c3070cf87a3a3b75f5ae" content="ded46ff83865378e6701c3070cf87a3a3b75f5ae" />
+        {/* <script>
+        (function(xzxp){
+          var d = document,
+              s = d.createElement('script'),
+              l = d.scripts[d.scripts.length - 1];
+          s.settings = xzxp || {};
+          s.src = "\/\/neat-period.com\/bgXfVDszd.Gml\/0xY\/WNd\/iFYCWN5XuSZnX-IH\/herma9yuVZ-UmlwkpPNTLUu5aM\/jqEi3jO\/D\/Y\/t\/N\/TqkuyWMSTqck4\/NdwH";
+          s.async = true;
+          s.referrerPolicy = 'no-referrer-when-downgrade';
+          l.parentNode.insertBefore(s, l);
+          })({})
+        </script> */}
+         <Script id="custom-inline-script" strategy="afterInteractive">
+        {`
+          (function(xzxp){
+            var d = document,
+                s = d.createElement('script'),
+                l = d.scripts[d.scripts.length - 1];
+            s.settings = xzxp || {};
+            s.src = "//neat-period.com/bgXfVDszd.Gml/0xY/WNd/iFYCWN5XuSZnX-IH/herma9yuVZ-UmlwkpPNTLUu5aM/jqEi3jO/D/Y/t/N/TqkuyWMSTqck4/NdwH";
+            s.async = true;
+            s.referrerPolicy = 'no-referrer-when-downgrade';
+            l.parentNode.insertBefore(s, l);
+          })({});
+        `}
+      </Script>
       </head>
       
       <body className={inter.className}>
