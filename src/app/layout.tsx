@@ -84,6 +84,7 @@ export default async function RootLayout({
       <head>
         <meta name="google-site-verification" content="gcYNBWqBdyY8i1Y1LtL39rmYsmdMMRokCwsPppsJen4" />
         <GoogleAnalytics />
+        <meta name="ded46ff83865378e6701c3070cf87a3a3b75f5ae" content="ded46ff83865378e6701c3070cf87a3a3b75f5ae" />
       </head>
       
       <body className={inter.className}>
