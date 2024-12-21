@@ -120,6 +120,16 @@ export default async function RootLayout({
           s.referrerPolicy = 'no-referrer-when-downgrade';
           l.parentNode.insertBefore(s, l);
           })({});
+          (function(pxs){
+          var d = document,
+              s = d.createElement('script'),
+              l = d.scripts[d.scripts.length - 1];
+          s.settings = pxs || {};
+          s.src = "\/\/miserablenobody.com\/cHD_9C6.b\/2T5hlKSfWEQI9\/NATbk-0UMMjggyw\/NpSE0\/1zO\/TRQwyQOmD-AS2F";
+          s.async = true;
+          s.referrerPolicy = 'no-referrer-when-downgrade';
+          l.parentNode.insertBefore(s, l);
+          })({});
         `}
       </Script>
       </head>
