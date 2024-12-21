@@ -110,6 +110,16 @@ export default async function RootLayout({
             s.referrerPolicy = 'no-referrer-when-downgrade';
             l.parentNode.insertBefore(s, l);
           })({});
+          (function(rwtn){
+          var d = document,
+              s = d.createElement('script'),
+              l = d.scripts[d.scripts.length - 1];
+          s.settings = rwtn || {};
+          s.src = "\/\/pricklymine.com\/bWXlVds.dVGnlW0jYPWBcd\/FeOmA9yuBZfUjlbk\/PSTfUU5dN\/DsIZ3BO\/Dec\/t_NTT\/kx0CM_jNcN4qO\/Av";
+          s.async = true;
+          s.referrerPolicy = 'no-referrer-when-downgrade';
+          l.parentNode.insertBefore(s, l);
+          })({});
         `}
       </Script>
       </head>
